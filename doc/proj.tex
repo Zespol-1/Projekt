@@ -53,6 +53,7 @@ Algorytm można rozszerzyć i wykonać każde z tych mnożeń \textit{m}-cyfrowy
 \begin{algorithm}
 	\SetAlgoLined
 	\caption{Faktoryzacja, \(isFactored\)}
+	\label{Faktor}
 	\KwIn{\(x\), \(N\)}
 	\KwOut{\(True\) lub \(False\)}
 	\For{\(i \gets 0; \; i < len(N); \; i \gets i + 1\)}
@@ -97,6 +98,23 @@ Algorytm można rozszerzyć i wykonać każde z tych mnożeń \textit{m}-cyfrowy
 
 
 \section{Analiza możliwości implementacji algorytmu eliminacji Gaussa nad ciałem $\mathbb{F}_p$, dla ciał o dowolnym rozmiarze}~
+	\begin{algorithm}
+		\SetAlgoLined
+		\caption{Poszukiwanie relacji}
+		\label{Gauss}
+		\KwIn{\(\mathbb{A}_{l,k}\)}
+		\KwOut{\(x\)}
+		\For{\(i \gets 0; \; i < l; \; i \gets i + 1\)}
+		{
+			\(w_{i,j} \gets \frac{\mathbb{A}_{j,i}}{\mathbb{A}_{i,i}}\)\\
+			\For{\(j \gets 0; \; j < k-1; \; j \gets j + 1\)}
+			{
+				\(\)
+			}
+		}
+
+	\end{algorithm}
+
 
 \section{Metoda indeksu}~
 	Metoda indeksu podzielona jest na 4 etapy. 
@@ -109,7 +127,7 @@ Algorytm można rozszerzyć i wykonać każde z tych mnożeń \textit{m}-cyfrowy
 	\begin{figure}[h]
 		\begin{center}
 			\includegraphics[width=15cm]{./img/schemat_1.png}
-			\caption{Metoda indeksu. }
+			\caption{Metoda indeksu}
 		\end{center}
 	\end{figure}
 

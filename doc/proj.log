@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2020.11.5)  15 APR 2021 19:37
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2020.11.5)  15 APR 2021 19:53
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -205,7 +205,7 @@ Overfull \hbox (43.8344pt too wide) in paragraph at lines 51--51
  []
 
 [2]
-Overfull \hbox (21.03404pt too wide) in paragraph at lines 99--99
+Overfull \hbox (21.03404pt too wide) in paragraph at lines 100--100
 []\T1/cmr/bx/n/14.4 Analiza mo»li-wo±ci im-ple-men-tacji al-go-rytmu elim-
  []
 
@@ -213,44 +213,49 @@ Overfull \hbox (21.03404pt too wide) in paragraph at lines 99--99
 <./img/schemat_1.png, id=30, 726.3135pt x 438.438pt>
 File: ./img/schemat_1.png Graphic file (type png)
 <use ./img/schemat_1.png>
-Package pdftex.def Info: ./img/schemat_1.png  used on input line 111.
+Package pdftex.def Info: ./img/schemat_1.png  used on input line 129.
 (pdftex.def)             Requested size: 426.79134pt x 257.63922pt.
 
-Overfull \hbox (81.79134pt too wide) in paragraph at lines 111--112
+Overfull \hbox (81.79134pt too wide) in paragraph at lines 129--130
  [] 
  []
 
-[4 <./img/schemat_1.png>] (./proj.aux) ) 
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[4] [5 <./img/schemat_1.png>] (./proj.aux) ) 
 Here is how much of TeX's memory you used:
- 2496 strings out of 480608
- 35981 string characters out of 5907536
- 282469 words of memory out of 5000000
- 18376 multiletter control sequences out of 15000+600000
+ 2498 strings out of 480608
+ 35996 string characters out of 5907536
+ 283485 words of memory out of 5000000
+ 18378 multiletter control sequences out of 15000+600000
  548621 words of font info for 67 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 31i,14n,30p,387b,449s stack positions out of 5000i,500n,10000p,200000b,80000s
-{d:/texlive/2020/texmf-dist/fonts/enc/d
-vips/cm-super/cm-super-t1.enc}<d:/texlive/2020/texmf-dist/fonts/type1/public/am
-sfonts/cm/cmmi10.pfb><d:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm
-/cmmi7.pfb><d:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb
-><d:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb><d:/texliv
-e/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><d:/texlive/2020/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><d:/texlive/2020/texmf-dist/fo
-nts/type1/public/amsfonts/cm/cmsy7.pfb><d:/texlive/2020/texmf-dist/fonts/type1/
-public/amsfonts/symbols/msbm10.pfb><d:/texlive/2020/texmf-dist/fonts/type1/publ
-ic/cm-super/sfbx0700.pfb><d:/texlive/2020/texmf-dist/fonts/type1/public/cm-supe
-r/sfbx0900.pfb><d:/texlive/2020/texmf-dist/fonts/type1/public/cm-super/sfbx1000
-.pfb><d:/texlive/2020/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb><d:/t
-exlive/2020/texmf-dist/fonts/type1/public/cm-super/sfrm0900.pfb><d:/texlive/202
-0/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb><d:/texlive/2020/texmf-di
-st/fonts/type1/public/cm-super/sfrm1200.pfb><d:/texlive/2020/texmf-dist/fonts/t
-ype1/public/cm-super/sfrm1728.pfb><d:/texlive/2020/texmf-dist/fonts/type1/publi
-c/cm-super/sfrm2488.pfb><d:/texlive/2020/texmf-dist/fonts/type1/public/cm-super
-/sfti1000.pfb>
-Output written on proj.pdf (4 pages, 232501 bytes).
+ 31i,15n,30p,387b,449s stack positions out of 5000i,500n,10000p,200000b,80000s
+{d:/texlive/2020/texmf-dist/fonts/e
+nc/dvips/cm-super/cm-super-t1.enc}<d:/texlive/2020/texmf-dist/fonts/type1/publi
+c/amsfonts/cm/cmmi10.pfb><d:/texlive/2020/texmf-dist/fonts/type1/public/amsfont
+s/cm/cmmi5.pfb><d:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7
+.pfb><d:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><d:/t
+exlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb><d:/texlive/2020
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><d:/texlive/2020/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmsy10.pfb><d:/texlive/2020/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmsy7.pfb><d:/texlive/2020/texmf-dist/fonts/type1/public
+/amsfonts/symbols/msbm10.pfb><d:/texlive/2020/texmf-dist/fonts/type1/public/ams
+fonts/symbols/msbm7.pfb><d:/texlive/2020/texmf-dist/fonts/type1/public/cm-super
+/sfbx0700.pfb><d:/texlive/2020/texmf-dist/fonts/type1/public/cm-super/sfbx0900.
+pfb><d:/texlive/2020/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb><d:/te
+xlive/2020/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb><d:/texlive/2020
+/texmf-dist/fonts/type1/public/cm-super/sfrm0900.pfb><d:/texlive/2020/texmf-dis
+t/fonts/type1/public/cm-super/sfrm1000.pfb><d:/texlive/2020/texmf-dist/fonts/ty
+pe1/public/cm-super/sfrm1200.pfb><d:/texlive/2020/texmf-dist/fonts/type1/public
+/cm-super/sfrm1728.pfb><d:/texlive/2020/texmf-dist/fonts/type1/public/cm-super/
+sfrm2488.pfb><d:/texlive/2020/texmf-dist/fonts/type1/public/cm-super/sfti1000.p
+fb>
+Output written on proj.pdf (5 pages, 245636 bytes).
 PDF statistics:
- 91 PDF objects out of 1000 (max. 8388607)
- 65 compressed objects within 1 object stream
+ 102 PDF objects out of 1000 (max. 8388607)
+ 73 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  6 words of extra memory for PDF output out of 10000 (max. 10000000)
 
