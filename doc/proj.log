@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2021.2.10)  15 APR 2021 09:55
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2020.11.5)  15 APR 2021 18:46
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -6,9 +6,9 @@ entering extended mode
 (./proj.tex
 LaTeX2e <2020-02-02> patch level 5
 L3 programming layer <2020-03-06>
-(c:/texlive/2020/texmf-dist/tex/latex/base/article.cls
+(d:/texlive/2020/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2019/12/20 v1.4l Standard LaTeX document class
-(c:/texlive/2020/texmf-dist/tex/latex/base/size10.clo
+(d:/texlive/2020/texmf-dist/tex/latex/base/size10.clo
 File: size10.clo 2019/12/20 v1.4l Standard LaTeX file (size option)
 )
 \c@part=\count167
@@ -23,10 +23,10 @@ File: size10.clo 2019/12/20 v1.4l Standard LaTeX file (size option)
 \belowcaptionskip=\skip48
 \bibindent=\dimen134
 )
-(c:/texlive/2020/texmf-dist/tex/latex/base/fontenc.sty
+(d:/texlive/2020/texmf-dist/tex/latex/base/fontenc.sty
 Package: fontenc 2020/02/11 v2.0o Standard LaTeX package
 )
-(c:/texlive/2020/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+(d:/texlive/2020/texmf-dist/tex/latex/amsfonts/amsfonts.sty
 Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
 \@emptytoks=\toks15
 \symAMSa=\mathgroup4
@@ -35,7 +35,7 @@ LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
 )
-(c:/texlive/2020/texmf-dist/tex/latex/l3backend/l3backend-pdfmode.def
+(d:/texlive/2020/texmf-dist/tex/latex/l3backend/l3backend-pdfmode.def
 File: l3backend-pdfmode.def 2020-03-12 L3 backend support: PDF mode
 \l__kernel_color_stack_int=\count175
 \l__pdf_internal_box=\box45
@@ -59,13 +59,13 @@ LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 11.
 LaTeX Font Info:    ... okay on input line 11.
 LaTeX Font Info:    Trying to load font information for U+msa on input line 13.
 
- (c:/texlive/2020/texmf-dist/tex/latex/amsfonts/umsa.fd
+ (d:/texlive/2020/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
 LaTeX Font Info:    Trying to load font information for U+msb on input line 13.
 
 
-(c:/texlive/2020/texmf-dist/tex/latex/amsfonts/umsb.fd
+(d:/texlive/2020/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 Overfull \hbox (8.91357pt too wide) in paragraph at lines 24--27
@@ -97,7 +97,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 28--29
 
 [1
 
-{c:/texlive/2020/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+{d:/texlive/2020/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
 Overfull \hbox (43.8344pt too wide) in paragraph at lines 44--44
 []\T1/cmr/bx/n/14.4 Analiza mo»li-wo±ci im-ple-men-tacji al-go-rytmu poszuki-
  []
@@ -121,20 +121,20 @@ Here is how much of TeX's memory you used:
  546292 words of font info for 64 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  25i,5n,27p,387b,200s stack positions out of 5000i,500n,10000p,200000b,80000s
-{c:/texlive/2020/texmf-dist/fonts/enc/dvips/cm-super/cm-super
--t1.enc}<c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><
-c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><c:/texlive
-/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2020/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb><c:/texlive/2020/texmf-dist/font
-s/type1/public/amsfonts/cm/cmr7.pfb><c:/texlive/2020/texmf-dist/fonts/type1/pub
-lic/amsfonts/cm/cmsy10.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfo
-nts/symbols/msbm10.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/cm-super/
-sfbx0900.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/cm-super/sfbx1440.p
-fb><c:/texlive/2020/texmf-dist/fonts/type1/public/cm-super/sfrm0900.pfb><c:/tex
-live/2020/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb><c:/texlive/2020/
-texmf-dist/fonts/type1/public/cm-super/sfrm1728.pfb><c:/texlive/2020/texmf-dist
+{d:/texlive/2020/texmf-dist/fonts/enc/dvips/cm-super/cm-super
+-t1.enc}<d:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><
+d:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><d:/texlive
+/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><d:/texlive/2020/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb><d:/texlive/2020/texmf-dist/font
+s/type1/public/amsfonts/cm/cmr7.pfb><d:/texlive/2020/texmf-dist/fonts/type1/pub
+lic/amsfonts/cm/cmsy10.pfb><d:/texlive/2020/texmf-dist/fonts/type1/public/amsfo
+nts/symbols/msbm10.pfb><d:/texlive/2020/texmf-dist/fonts/type1/public/cm-super/
+sfbx0900.pfb><d:/texlive/2020/texmf-dist/fonts/type1/public/cm-super/sfbx1440.p
+fb><d:/texlive/2020/texmf-dist/fonts/type1/public/cm-super/sfrm0900.pfb><d:/tex
+live/2020/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb><d:/texlive/2020/
+texmf-dist/fonts/type1/public/cm-super/sfrm1728.pfb><d:/texlive/2020/texmf-dist
 /fonts/type1/public/cm-super/sfti1000.pfb>
-Output written on proj.pdf (2 pages, 156751 bytes).
+Output written on proj.pdf (2 pages, 157139 bytes).
 PDF statistics:
  64 PDF objects out of 1000 (max. 8388607)
  46 compressed objects within 1 object stream
