@@ -22,22 +22,23 @@ Poniższe sprawozdanie jest wynikiem naszej pracy na drugim etapie projektu zesp
 
 \section{Analiza możliwości implementacji algorytmów mnożenia modularnego dużych liczb}
 Zaproponowanym przez nas algorytmem jest ten odkryty przez rosyjskiego matematyka Anatolija Karacubę. Umożliwia on zmniejszenie złożoności czasowej ($\Theta(n^{log_{2}3})$) w porównaniu do mnożenia klasycznego ($\Theta(n^2)$) .
+\newline\newline
+~Projekt algorytmu:\newline
 
-~Projekt algorytmu:
-
-Do pomnożenia dwóch \textit{n}-cyfrowych liczb \textit{x} i \textit{y} przy podstawie \textit{B}, gdzie \textit{n = 2m} (jeśli \textit{n} jest nieparzyste, albo \textit{x} ma różną liczbę cyfr niż  \textit{y}, można to naprawić, dodając zera po lewej stronie tych liczb), rozpisujemy je jako:\newline
+Mnożone są dwie \textit{n}-cyfrowe liczby \textit{x} i \textit{y} przy podstawie \textit{B}, gdzie \textit{n = 2m}. Przetwarzane \textit{n} może być nieparzyste, a \textit{x} i \textit{y} mogą mieć różną liczbę cyfr. W takim przypadku po lewej stronie tych liczb należy dopisać zera. Wartości \textit{x}~i~\textit{y}~należy rozpisać jako:\newline
 $$ x = x_{1}B^{m} + x_2 $$
-$$ y = y_{1}B^{m} + y_2 $$
-gdzie $x_2$ i $y_2$ są mniejsze niż $B^m$. Wynik mnożenia wynosi wtedy:
-$$xy = (x_{1}B^{m} + x_2)(y_1B^m + y_2) = x_1y_1B^{2m} + (x_1y_2 + x_2y_1)B^m + x_2y2$$ 
-Standardową metodą byłoby pomnożenie czterech czynników osobno i dodanie ich po odpowiednim przesunięciu. Daje to algorytm działający w czasie $\textit{O}(n^{2})$. Karacuba zauważył, że możemy ten sam wynik uzyskać, wykonując tylko trzy mnożenia:
+$$ y = y_{1}B^{m} + y_2, $$
+gdzie $x_2$, $y_2$ < $B^m$. \newline
+Przemnożenie tych liczb prowadzi do otrzymania równania:
+$$xy = (x_{1}B^{m} + x_2)(y_1B^m + y_2) = x_1y_1B^{2m} + (x_1y_2 + x_2y_1)B^m + x_2y_2.$$ 
+Klasycznie problem ten rozwiązuje się poprzez przemnożenie czterech czynników osobno, wykonanie przesunięcia i dodanie ich, co powoduje, że opisany algorytm wykonuje się w czasie $\textit{O}(n^{2})$. Karacuba zaproponował, by zastąpić go trzema mnożeniami:
 $$X = x_1y_1$$
 $$Y = x_2y_2$$
 $$Z = (x_1 + x_2)(y_1 + y_2) - X - Y$$
-Dostajemy wtedy:
-$$ Z = (x_1y_1 + x_1y_2 + x_2y_1 + x_2y_2) - x_1y_1 - x_2y_2 = x_1y_2 + x_2y_1)$$
-A zatem $xy = XB^{2m} + Y + ZB^m$; tym samym kosztem kilku dodawań i odejmowań zmniejszyliśmy liczbę mnożeń z czterech do trzech.\newline
-Każde z tych mnożeń \textit{m}-cyfrowych liczb możemy znów wykonać za pomocą algorytmu Karacuby, wykorzystując rekurencję.
+W wyniku tego otrzymuje się równanie:
+$$ Z = (x_1y_1 + x_1y_2 + x_2y_1 + x_2y_2) - x_1y_1 - x_2y_2 = x_1y_2 + x_2y_1).$$
+Zatem $xy = XB^{2m} + Y + ZB^m$. Tak więc wystarczy zaledwie kilka dodatwowych dodawań i odejmowań, by zmniejszyć liczbę mnożeń z czterech do trzech.\newline
+Algorytm można rozszerzyć i wykonać każde z tych mnożeń \textit{m}-cyfrowych liczb ponownie w ten sam sposób przy wykorzystaniu rekurencji.
 
 
 \section{Analiza możliwości implementacji algorytmu poszukiwania relacji (oraz faktoryzacji w bazie), dla algorytmu metody indeksu}
