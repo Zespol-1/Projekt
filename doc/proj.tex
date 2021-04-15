@@ -1,16 +1,23 @@
-	\documentclass[]{article}
+\documentclass[]{article}
 \usepackage[T1]{fontenc}
 \usepackage{amsfonts}
+\usepackage{graphicx}
+\usepackage[linesnumbered,lined,boxed,commentsnumbered,ruled,vlined]{algorithm2e}
 
 %opening
 \title{Projekt Zespołowy \\
-	Etap projektu – projektowanie rozwiązania na zadaną architekturę}
-\author{}
-\date{}
+	\Huge Etap projektu – projektowanie rozwiązania na zadaną architekturę}
+\author{\\ \\ \\ Autorzy:
+	\\Biernacka Kamila\\ 
+	Kania Dominik\\ 
+	Leśniak Mateusz\\ 
+	Maziarz Wojciech\\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\  }
+\date{kwiecień 2021}
 
 \begin{document}
 
 \maketitle
+\newpage
 
 \begin{abstract}
 
@@ -37,11 +44,36 @@ $$Y = x_2y_2$$
 $$Z = (x_1 + x_2)(y_1 + y_2) - X - Y$$
 W wyniku tego otrzymuje się równanie:
 $$ Z = (x_1y_1 + x_1y_2 + x_2y_1 + x_2y_2) - x_1y_1 - x_2y_2 = x_1y_2 + x_2y_1).$$
-Zatem $xy = XB^{2m} + Y + ZB^m$. Tak więc wystarczy zaledwie kilka dodatwowych dodawań i odejmowań, by zmniejszyć liczbę mnożeń z czterech do trzech.\newline
+Zatem $xy = XB^{2m} + Y + ZB^m$. Tak więc wystarczy zaledwie kilka dodatkowych dodawań i odejmowań, by zmniejszyć liczbę mnożeń z czterech do trzech.\newline
 Algorytm można rozszerzyć i wykonać każde z tych mnożeń \textit{m}-cyfrowych liczb ponownie w ten sam sposób przy wykorzystaniu rekurencji.
 
 
 \section{Analiza możliwości implementacji algorytmu poszukiwania relacji (oraz faktoryzacji w bazie), dla algorytmu metody indeksu}
+
+\begin{algorithm}
+	\SetAlgoLined
+	\caption{Poszukiwanie relacji}
+	\KwIn{\(\mathbb{B}\), \(l\)}
+	\KwOut{\(N\), \(R\)}
+	\(i \gets 0\) \\
+	\While{\(p_i \leq \mathbb{B}\), \(p_i \in \mathcal{P}\)}
+	{
+		\(N[i] \gets p_i\)\\
+		\(i \gets i + 1\)\\
+	}
+	\(j \gets 0\) \\
+	\While{\(j < l\)}
+	{
+		\(x \gets random(\mathbb{F}_p^*)\)\\
+		\If{\(isFactored(x, N)\)}
+		{
+			\(R[j] \gets x\)\\
+			\(j \gets j + 1\)\\
+		}
+	}
+	\Return{\(N, R\)}
+\end{algorithm}
+
 
 Wstęp do wykorzystywanego algorytmu:
 1. Wyznaczamy wszystkie liczby pierwsze mniejsze od \textit{B}, które tworzą bazę rozkładu.
@@ -52,6 +84,19 @@ Wstęp do wykorzystywanego algorytmu:
 \section{Analiza możliwości implementacji algorytmu eliminacji Gaussa nad ciałem $\mathbb{F}_p$, dla ciał o dowolnym rozmiarze}~
 
 \section{Metoda indeksu}~
+	Metoda indeksu podzielona jest na 4 etapy. 
+	\begin{enumerate}
+		\item Konstruowanie zbioru relacji z wykorzystaniem algorytmu;
+		\item Rozwiązanie układu równań;
+		\item Wyznaczenie wartości \(r\);
+		\item Wyznaczenie rozwiązania;
+	\end{enumerate}
+	\begin{figure}[h]
+		\begin{center}
+			\includegraphics[width=15cm]{./img/schemat_1.png}
+			\caption{Metoda indeksu. }
+		\end{center}
+	\end{figure}
 
 
 
