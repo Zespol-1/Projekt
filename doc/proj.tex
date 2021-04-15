@@ -52,7 +52,28 @@ Algorytm można rozszerzyć i wykonać każde z tych mnożeń \textit{m}-cyfrowy
 
 \begin{algorithm}
 	\SetAlgoLined
+	\caption{Faktoryzacja, \(isFactored\)}
+	\KwIn{\(x\), \(N\)}
+	\KwOut{\(True\) lub \(False\)}
+	\For{\(i \gets 0; \; i < len(N); \; i \gets i + 1\)}
+	{
+		\While{\(x \% N[i] == 0\)}
+		{
+			\(x \gets x/N[i]\)\\
+		}
+		\(i \gets i + 1\)
+	}
+	\If{\(x == 1\)}
+	{
+			\Return{\(True\)}
+	}
+	\Return{\(False\)}
+\end{algorithm}
+
+\begin{algorithm}
+	\SetAlgoLined
 	\caption{Poszukiwanie relacji}
+	\label{Relation}
 	\KwIn{\(\mathbb{B}\), \(l\)}
 	\KwOut{\(N\), \(R\)}
 	\(i \gets 0\) \\
@@ -75,19 +96,13 @@ Algorytm można rozszerzyć i wykonać każde z tych mnożeń \textit{m}-cyfrowy
 \end{algorithm}
 
 
-Wstęp do wykorzystywanego algorytmu:
-1. Wyznaczamy wszystkie liczby pierwsze mniejsze od \textit{B}, które tworzą bazę rozkładu.
-2. Losujemy \textit{l} liczb $a_i$, gdzie $i=\overline{1,l}$, takich że rozkładają się one w wyznaczonej wcześniej bazie rozkładu.
-3. Dzielimy liczby $a_i$, gdzie $i=\overline{1,l}$ przez kolejne liczby z bazy rozkładu dopóki wynik dzielenia jest całkowitoliczbowy.\newline
-
-
 \section{Analiza możliwości implementacji algorytmu eliminacji Gaussa nad ciałem $\mathbb{F}_p$, dla ciał o dowolnym rozmiarze}~
 
 \section{Metoda indeksu}~
 	Metoda indeksu podzielona jest na 4 etapy. 
 	\begin{enumerate}
-		\item Konstruowanie zbioru relacji z wykorzystaniem algorytmu;
-		\item Rozwiązanie układu równań;
+		\item Konstruowanie zbioru relacji z wykorzystaniem algorytmu \ref{Relation}
+		\item Rozwiązanie układu równań z wykorzystaniem algorytmu (ref do algorytmu eliminacji gaussa)
 		\item Wyznaczenie wartości \(r\);
 		\item Wyznaczenie rozwiązania;
 	\end{enumerate}
