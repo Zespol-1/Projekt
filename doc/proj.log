@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2020.11.10)  16 APR 2021 11:17
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2020.11.10)  16 APR 2021 11:42
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -59,9 +59,17 @@ File: pdftex.def 2018/01/08 v1.0l Graphics/color driver for pdftex
 \Gin@req@height=\dimen135
 \Gin@req@width=\dimen136
 )
+(c:/texlive/2020/texmf-dist/tex/latex/float/float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count175
+\float@exts=\toks17
+\float@box=\box45
+\@float@everytoks=\toks18
+\@floatcapt=\box46
+)
 (c:/texlive/2020/texmf-dist/tex/latex/algorithm2e/algorithm2e.sty
 Package: algorithm2e 2017/07/18 v5.2 algorithms environments
-\c@AlgoLine=\count175
+\c@AlgoLine=\count176
 
 (c:/texlive/2020/texmf-dist/tex/latex/base/ifthen.sty
 Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
@@ -70,7 +78,7 @@ Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
 
 (c:/texlive/2020/texmf-dist/tex/latex/ifoddpage/ifoddpage.sty
 Package: ifoddpage 2016/04/23 v1.1 Conditionals for odd/even page detection
-\c@checkoddpage=\count176
+\c@checkoddpage=\count177
 )
 (c:/texlive/2020/texmf-dist/tex/latex/tools/xspace.sty
 Package: xspace 2014/10/28 v1.13 Space after command names (DPC,MH)
@@ -93,62 +101,62 @@ Package: relsize 2013/03/29 ver 4.1
 \interspacealgoruled=\dimen141
 \interspacetitleboxruled=\dimen142
 \algocf@ruledwidth=\skip58
-\algocf@inoutbox=\box45
-\algocf@inputbox=\box46
+\algocf@inoutbox=\box47
+\algocf@inputbox=\box48
 \AlCapSkip=\skip59
 \AlCapHSkip=\skip60
 \algoskipindent=\skip61
-\algocf@nlbox=\box47
-\algocf@hangingbox=\box48
-\algocf@untilbox=\box49
+\algocf@nlbox=\box49
+\algocf@hangingbox=\box50
+\algocf@untilbox=\box51
 \algocf@skipuntil=\skip62
-\algocf@capbox=\box50
+\algocf@capbox=\box52
 \algocf@lcaptionbox=\skip63
 \algoheightruledefault=\skip64
 \algoheightrule=\skip65
 \algotitleheightruledefault=\skip66
 \algotitleheightrule=\skip67
-\c@algocfline=\count177
-\c@algocfproc=\count178
-\c@algocf=\count179
-\algocf@algoframe=\box51
-\algocf@algobox=\box52
+\c@algocfline=\count178
+\c@algocfproc=\count179
+\c@algocf=\count180
+\algocf@algoframe=\box53
+\algocf@algobox=\box54
 )
 (c:/texlive/2020/texmf-dist/tex/latex/l3backend/l3backend-pdfmode.def
 File: l3backend-pdfmode.def 2020-03-12 L3 backend support: PDF mode
-\l__kernel_color_stack_int=\count180
-\l__pdf_internal_box=\box53
+\l__kernel_color_stack_int=\count181
+\l__pdf_internal_box=\box55
 )
 (./proj.aux)
 \openout1 = `proj.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 17.
-LaTeX Font Info:    ... okay on input line 17.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 17.
-LaTeX Font Info:    ... okay on input line 17.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 17.
-LaTeX Font Info:    ... okay on input line 17.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 17.
-LaTeX Font Info:    ... okay on input line 17.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 17.
-LaTeX Font Info:    ... okay on input line 17.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 17.
-LaTeX Font Info:    ... okay on input line 17.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 17.
-LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
  (c:/texlive/2020/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count181
+\scratchcounter=\count182
 \scratchdimen=\dimen143
-\scratchbox=\box54
-\nofMPsegments=\count182
-\nofMParguments=\count183
-\everyMPshowfont=\toks17
-\MPscratchCnt=\count184
+\scratchbox=\box56
+\nofMPsegments=\count183
+\nofMParguments=\count184
+\everyMPshowfont=\toks19
+\MPscratchCnt=\count185
 \MPscratchDim=\dimen144
-\MPnumerator=\count185
-\makeMPintoPDFobject=\count186
-\everyMPtoPDFconversion=\toks18
+\MPnumerator=\count186
+\makeMPintoPDFobject=\count187
+\everyMPtoPDFconversion=\toks20
 ) (c:/texlive/2020/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
@@ -158,13 +166,13 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-LaTeX Font Info:    Trying to load font information for U+msa on input line 19.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 20.
 
 
 (c:/texlive/2020/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 19.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 20.
 
 
 (c:/texlive/2020/texmf-dist/tex/latex/amsfonts/umsb.fd
@@ -172,35 +180,35 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
 
 {c:/texlive/2020/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-Overfull \hbox (8.91357pt too wide) in paragraph at lines 31--34
+Overfull \hbox (8.91357pt too wide) in paragraph at lines 32--35
 \T1/cmr/m/n/10 Zaproponowanym przez nas al-go-ryt-mem jest ten od-kryty przez r
 osyjskiego matem-
  []
 
 
-Overfull \hbox (23.19225pt too wide) in paragraph at lines 31--34
+Overfull \hbox (23.19225pt too wide) in paragraph at lines 32--35
 \T1/cmr/m/n/10 atyka Ana-tolija Karacub¦. Umo»li-wia on zm-niejsze-nie zªo»ono±
 ci cza-sowej ($\OT1/cmr/m/n/10 ^^B(\OML/cmm/m/it/10 n[]\OT1/cmr/m/n/10 )$\T1/cm
 r/m/n/10 )
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 31--34
+Underfull \hbox (badness 10000) in paragraph at lines 32--35
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 31--34
+Underfull \hbox (badness 10000) in paragraph at lines 32--35
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 35--36
+Underfull \hbox (badness 10000) in paragraph at lines 36--37
 
  []
 
 
-Overfull \hbox (43.8344pt too wide) in paragraph at lines 51--51
+Overfull \hbox (43.8344pt too wide) in paragraph at lines 52--52
 []\T1/cmr/bx/n/14.4 Analiza mo»li-wo±ci im-ple-men-tacji al-go-rytmu poszuki-
  []
 
@@ -208,74 +216,65 @@ Overfull \hbox (43.8344pt too wide) in paragraph at lines 51--51
 <./img/schemat_1.png, id=23, 377.41pt x 712.6625pt>
 File: ./img/schemat_1.png Graphic file (type png)
 <use ./img/schemat_1.png>
-Package pdftex.def Info: ./img/schemat_1.png  used on input line 76.
+Package pdftex.def Info: ./img/schemat_1.png  used on input line 77.
 (pdftex.def)             Requested size: 284.52756pt x 537.26852pt.
+ [3]
+Overfull \vbox (21.2125pt too high) has occurred while \output is active []
 
 
-LaTeX Warning: Float too large for page by 21.2125pt on input line 79.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-<./img/2.png, id=25, 428.60126pt x 643.40375pt>
+[4 <./img/schemat_1.png>]
+<./img/2.png, id=34, 428.60126pt x 643.40375pt>
 File: ./img/2.png Graphic file (type png)
 <use ./img/2.png>
-Package pdftex.def Info: ./img/2.png  used on input line 108.
+Package pdftex.def Info: ./img/2.png  used on input line 109.
 (pdftex.def)             Requested size: 284.52756pt x 427.12181pt.
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-Overfull \hbox (21.03404pt too wide) in paragraph at lines 114--114
+ [5]
+Overfull \hbox (21.03404pt too wide) in paragraph at lines 115--115
 []\T1/cmr/bx/n/14.4 Analiza mo»li-wo±ci im-ple-men-tacji al-go-rytmu elim-
  []
 
-[3]
-<./img/3.png, id=33, 362.35374pt x 824.07875pt>
+[6 <./img/2.png>]
+<./img/3.png, id=44, 362.35374pt x 824.07875pt>
 File: ./img/3.png Graphic file (type png)
 <use ./img/3.png>
-Package pdftex.def Info: ./img/3.png  used on input line 134.
+Package pdftex.def Info: ./img/3.png  used on input line 135.
 (pdftex.def)             Requested size: 227.62204pt x 517.67601pt.
+ [7]
+Overfull \vbox (1.61998pt too high) has occurred while \output is active []
 
 
-LaTeX Warning: Float too large for page by 1.61998pt on input line 137.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[4] [5 <./img/schemat_1.png>] [6 <./img/2.png>] [7 <./img/3.png>] (./proj.aux) 
-) 
+[8 <./img/3.png>] [9] (./proj.aux) ) 
 Here is how much of TeX's memory you used:
- 2510 strings out of 480608
- 36154 string characters out of 5907535
- 284485 words of memory out of 5000000
- 18388 multiletter control sequences out of 15000+600000
+ 2571 strings out of 480608
+ 36938 string characters out of 5907535
+ 283876 words of memory out of 5000000
+ 18445 multiletter control sequences out of 15000+600000
  548621 words of font info for 67 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 31i,15n,30p,387b,449s stack positions out of 5000i,500n,10000p,200000b,80000s
-{c:/texlive/2020/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}<c:/texli
-ve/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2020/t
-exmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb><c:/texlive/2020/texmf-dist/
-fonts/type1/public/amsfonts/cm/cmmi7.pfb><c:/texlive/2020/texmf-dist/fonts/type
-1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/a
-msfonts/cm/cmr5.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/
-cmr7.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-<c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><c:/texliv
-e/2020/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb><c:/texlive/20
-20/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb><c:/texlive/2020/te
-xmf-dist/fonts/type1/public/cm-super/sfbx0700.pfb><c:/texlive/2020/texmf-dist/f
-onts/type1/public/cm-super/sfbx0900.pfb><c:/texlive/2020/texmf-dist/fonts/type1
-/public/cm-super/sfbx1000.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/cm
--super/sfbx1440.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/cm-super/sfr
-m0900.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
-<c:/texlive/2020/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb><c:/texliv
-e/2020/texmf-dist/fonts/type1/public/cm-super/sfrm1728.pfb><c:/texlive/2020/tex
-mf-dist/fonts/type1/public/cm-super/sfrm2488.pfb><c:/texlive/2020/texmf-dist/fo
-nts/type1/public/cm-super/sfti1000.pfb>
-Output written on proj.pdf (7 pages, 291660 bytes).
+ 31i,15n,30p,387b,453s stack positions out of 5000i,500n,10000p,200000b,80000s
+{c:/texlive/2020/texmf-dist/fonts/enc/dvips
+/cm-super/cm-super-t1.enc}<c:/texlive/2020/texmf-dist/fonts/type1/public/amsfon
+ts/cm/cmmi10.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmm
+i5.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><c:
+/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2
+020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb><c:/texlive/2020/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmr7.pfb><c:/texlive/2020/texmf-dist/fonts/t
+ype1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2020/texmf-dist/fonts/type1/publ
+ic/amsfonts/cm/cmsy7.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfont
+s/symbols/msbm10.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/sy
+mbols/msbm7.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/cm-super/sfbx070
+0.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/cm-super/sfbx0900.pfb><c:/
+texlive/2020/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb><c:/texlive/20
+20/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb><c:/texlive/2020/texmf-d
+ist/fonts/type1/public/cm-super/sfrm0900.pfb><c:/texlive/2020/texmf-dist/fonts/
+type1/public/cm-super/sfrm1000.pfb><c:/texlive/2020/texmf-dist/fonts/type1/publ
+ic/cm-super/sfrm1200.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/cm-supe
+r/sfrm1728.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/cm-super/sfrm2488
+.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/cm-super/sfti1000.pfb>
+Output written on proj.pdf (9 pages, 292836 bytes).
 PDF statistics:
- 116 PDF objects out of 1000 (max. 8388607)
- 80 compressed objects within 1 object stream
+ 122 PDF objects out of 1000 (max. 8388607)
+ 84 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  16 words of extra memory for PDF output out of 10000 (max. 10000000)
 
