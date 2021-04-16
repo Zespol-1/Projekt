@@ -71,6 +71,13 @@ Algorytm można rozszerzyć i wykonać każde z tych mnożeń \textit{m}-cyfrowy
 	\Return{\(False\)}
 \end{algorithm}
 
+\begin{figure}[h]
+	\begin{center}
+		\includegraphics[width=10cm]{./img/schemat_1.png}
+		\caption{Schemat blokowy algorytmu metody indeksu}
+	\end{center}
+\end{figure}
+
 \begin{algorithm}
 	\SetAlgoLined
 	\caption{Poszukiwanie relacji}
@@ -96,11 +103,18 @@ Algorytm można rozszerzyć i wykonać każde z tych mnożeń \textit{m}-cyfrowy
 	\Return{\(N, R\)}
 \end{algorithm}
 
+\begin{figure}[h]
+	\begin{center}
+		\includegraphics[width=10cm]{./img/2.png}
+		\caption{Schemat blokowy algorytmu poszukiwania relacji}
+	\end{center}
+\end{figure}
+
 
 \section{Analiza możliwości implementacji algorytmu eliminacji Gaussa nad ciałem $\mathbb{F}_p$, dla ciał o dowolnym rozmiarze}~
 	\begin{algorithm}
 		\SetAlgoLined
-		\caption{Poszukiwanie relacji}
+		\caption{Eliminacja Gaussa}
 		\label{Gauss}
 		\KwIn{\(\mathbb{A}_{l,k}\)}
 		\KwOut{\(x\)}
@@ -109,41 +123,33 @@ Algorytm można rozszerzyć i wykonać każde z tych mnożeń \textit{m}-cyfrowy
 			\(w_{i,j} \gets \frac{\mathbb{A}_{j,i}}{\mathbb{A}_{i,i}}\)\\
 			\For{\(j \gets 0; \; j < k-1; \; j \gets j + 1\)}
 			{
-				\(\)
+				print("dupa")
 			}
 		}
 
 	\end{algorithm}
 
+\begin{figure}[h]
+	\begin{center}
+		\includegraphics[width=8cm]{./img/3.png}
+		\caption{Schemat blokowy algorytmu eliminacji Gaussa}
+	\end{center}
+\end{figure}
+
+
 
 \section{Metoda indeksu}~
 	Metoda indeksu podzielona jest na 4 etapy. 
 	\begin{enumerate}
-		\item Konstruowanie zbioru relacji z wykorzystaniem algorytmu \ref{Relation}
-		\item Rozwiązanie układu równań z wykorzystaniem algorytmu (ref do algorytmu eliminacji gaussa)
+		\item Konstruowanie zbioru relacji wykorzystując algorytm \ref{Relation}.
+		\item Rozwiązanie układu równań z wykorzystując algorytm \ref{Gauss}.
 		\item Wyznaczenie wartości \(r\);
 		\item Wyznaczenie rozwiązania;
 	\end{enumerate}
-	\begin{figure}[h]
-		\begin{center}
-			\includegraphics[width=10cm]{./img/schemat_1.png}
-			\caption{Schemat blokowy algorytmu metody indeksu}
-		\end{center}
-	\end{figure}
 
-	\begin{figure}[h]
-	\begin{center}
-		\includegraphics[width=10cm]{./img/2.png}
-		\caption{Schemat blokowy algorytmu metody indeksu}
-	\end{center}
-\end{figure}
 
-	\begin{figure}[h]
-	\begin{center}
-		\includegraphics[width=9cm]{./img/3.png}
-		\caption{Schemat blokowy algorytmu metody indeksu}
-	\end{center}
-\end{figure}
+
+
 
 
 \end{document}

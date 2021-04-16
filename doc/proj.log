@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2020.11.10)  16 APR 2021 10:59
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2020.11.10)  16 APR 2021 11:17
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -205,38 +205,40 @@ Overfull \hbox (43.8344pt too wide) in paragraph at lines 51--51
  []
 
 [2]
-Overfull \hbox (21.03404pt too wide) in paragraph at lines 100--100
+<./img/schemat_1.png, id=23, 377.41pt x 712.6625pt>
+File: ./img/schemat_1.png Graphic file (type png)
+<use ./img/schemat_1.png>
+Package pdftex.def Info: ./img/schemat_1.png  used on input line 76.
+(pdftex.def)             Requested size: 284.52756pt x 537.26852pt.
+
+
+LaTeX Warning: Float too large for page by 21.2125pt on input line 79.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<./img/2.png, id=25, 428.60126pt x 643.40375pt>
+File: ./img/2.png Graphic file (type png)
+<use ./img/2.png>
+Package pdftex.def Info: ./img/2.png  used on input line 108.
+(pdftex.def)             Requested size: 284.52756pt x 427.12181pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+Overfull \hbox (21.03404pt too wide) in paragraph at lines 114--114
 []\T1/cmr/bx/n/14.4 Analiza mo»li-wo±ci im-ple-men-tacji al-go-rytmu elim-
  []
 
 [3]
-<./img/schemat_1.png, id=30, 377.41pt x 712.6625pt>
-File: ./img/schemat_1.png Graphic file (type png)
-<use ./img/schemat_1.png>
-Package pdftex.def Info: ./img/schemat_1.png  used on input line 129.
-(pdftex.def)             Requested size: 284.52756pt x 537.26852pt.
-
-
-LaTeX Warning: Float too large for page by 21.2125pt on input line 132.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-<./img/2.png, id=32, 427.5975pt x 634.37pt>
-File: ./img/2.png Graphic file (type png)
-<use ./img/2.png>
-Package pdftex.def Info: ./img/2.png  used on input line 136.
-(pdftex.def)             Requested size: 284.52756pt x 422.11209pt.
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
 <./img/3.png, id=33, 362.35374pt x 824.07875pt>
 File: ./img/3.png Graphic file (type png)
 <use ./img/3.png>
-Package pdftex.def Info: ./img/3.png  used on input line 143.
-(pdftex.def)             Requested size: 256.0748pt x 582.38394pt.
+Package pdftex.def Info: ./img/3.png  used on input line 134.
+(pdftex.def)             Requested size: 227.62204pt x 517.67601pt.
 
-LaTeX Warning: Float too large for page by 66.32791pt on input line 146.
+
+LaTeX Warning: Float too large for page by 1.61998pt on input line 137.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
@@ -246,7 +248,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 Here is how much of TeX's memory you used:
  2510 strings out of 480608
  36154 string characters out of 5907535
- 283485 words of memory out of 5000000
+ 284485 words of memory out of 5000000
  18388 multiletter control sequences out of 15000+600000
  548621 words of font info for 67 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -270,7 +272,7 @@ m0900.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
 e/2020/texmf-dist/fonts/type1/public/cm-super/sfrm1728.pfb><c:/texlive/2020/tex
 mf-dist/fonts/type1/public/cm-super/sfrm2488.pfb><c:/texlive/2020/texmf-dist/fo
 nts/type1/public/cm-super/sfti1000.pfb>
-Output written on proj.pdf (7 pages, 289691 bytes).
+Output written on proj.pdf (7 pages, 291660 bytes).
 PDF statistics:
  116 PDF objects out of 1000 (max. 8388607)
  80 compressed objects within 1 object stream
