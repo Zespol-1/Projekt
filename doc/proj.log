@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2020.11.5)  16 APR 2021 15:29
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2020.11.5)  16 APR 2021 15:35
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -229,7 +229,7 @@ Overfull \hbox (21.03404pt too wide) in paragraph at lines 115--115
  []
 
 
-Overfull \hbox (4.44336pt too wide) in paragraph at lines 115--130
+Overfull \hbox (4.44336pt too wide) in paragraph at lines 115--131
   $[]$ 
  []
 
@@ -237,7 +237,7 @@ Overfull \hbox (4.44336pt too wide) in paragraph at lines 115--130
 <./img/schemat_1.png, id=43, 377.41pt x 712.6625pt>
 File: ./img/schemat_1.png Graphic file (type png)
 <use ./img/schemat_1.png>
-Package pdftex.def Info: ./img/schemat_1.png  used on input line 145.
+Package pdftex.def Info: ./img/schemat_1.png  used on input line 146.
 (pdftex.def)             Requested size: 156.49014pt x 295.49931pt.
  [6 <./img/schemat_1.png>] (./proj.aux) ) 
 Here is how much of TeX's memory you used:
@@ -268,7 +268,7 @@ onts/type1/public/cm-super/sfrm1000.pfb><d:/texlive/2020/texmf-dist/fonts/type1
 -super/sfrm1728.pfb><d:/texlive/2020/texmf-dist/fonts/type1/public/cm-super/sfr
 m2488.pfb><d:/texlive/2020/texmf-dist/fonts/type1/public/cm-super/sfti1000.pfb>
 
-Output written on proj.pdf (6 pages, 292491 bytes).
+Output written on proj.pdf (6 pages, 292691 bytes).
 PDF statistics:
  111 PDF objects out of 1000 (max. 8388607)
  76 compressed objects within 1 object stream
