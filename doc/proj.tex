@@ -51,7 +51,7 @@ Algorytm można rozszerzyć i wykonać każde z tych mnożeń \textit{m}-cyfrowy
 
 \section{Analiza możliwości implementacji algorytmu poszukiwania relacji (oraz faktoryzacji w bazie), dla algorytmu metody indeksu}
 
-\begin{algorithm}
+\begin{algorithm}[H]
 	\SetAlgoLined
 	\caption{Faktoryzacja, \(isFactored\)}
 	\label{Faktor}
@@ -74,12 +74,12 @@ Algorytm można rozszerzyć i wykonać każde z tych mnożeń \textit{m}-cyfrowy
 
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[width=10cm]{./img/schemat_1.png}
-		\caption{Schemat blokowy algorytmu metody indeksu}
+		\includegraphics[width=4cm]{./img/3.png}
+		\caption{Schemat blokowy algorytmu sprawdzenia faktoryzacji w określonej bazie}
 	\end{center}
 \end{figure}
 
-\begin{algorithm}
+\begin{algorithm}[H]
 	\SetAlgoLined
 	\caption{Poszukiwanie relacji}
 	\label{Relation}
@@ -106,39 +106,31 @@ Algorytm można rozszerzyć i wykonać każde z tych mnożeń \textit{m}-cyfrowy
 
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[width=10cm]{./img/2.png}
+		\includegraphics[width=5cm]{./img/2.png}
 		\caption{Schemat blokowy algorytmu poszukiwania relacji}
 	\end{center}
 \end{figure}
 
 
 \section{Analiza możliwości implementacji algorytmu eliminacji Gaussa nad ciałem $\mathbb{F}_p$, dla ciał o dowolnym rozmiarze}~
-	\begin{algorithm}
+	\begin{algorithm}[H]
 		\SetAlgoLined
 		\caption{Eliminacja Gaussa}
 		\label{Gauss}
-		\KwIn{\(\mathbb{A}_{l,k}\)}
+		\KwIn{\(\mathbb{A}_{l,k+1} \)}
 		\KwOut{\(x\)}
 		\For{\(i \gets 0; \; i < l; \; i \gets i + 1\)}
 		{
-			\(w_{i,j} \gets \frac{\mathbb{A}_{j,i}}{\mathbb{A}_{i,i}}\)\\
-			\For{\(j \gets 0; \; j < k-1; \; j \gets j + 1\)}
+			\For{\(j \gets i; \; j < k; \; j \gets j + 1\)}
 			{
-				print("dupa")
+				\(A_{j} \gets A_{j}  - w \cdot A_{j}\), gdzie \(w_k = \frac{\mathbb{A}_{k,j}}{\mathbb{A}_{i,i}}\)
 			}
 		}
 
 	\end{algorithm}
 
-\begin{figure}[H]
-	\begin{center}
-		\includegraphics[width=8cm]{./img/3.png}
-		\caption{Schemat blokowy algorytmu eliminacji Gaussa}
-	\end{center}
-\end{figure}
 
-
-
+\newpage
 \section{Metoda indeksu}~
 	Metoda indeksu podzielona jest na 4 etapy. 
 	\begin{enumerate}
@@ -148,7 +140,12 @@ Algorytm można rozszerzyć i wykonać każde z tych mnożeń \textit{m}-cyfrowy
 		\item Wyznaczenie rozwiązania;
 	\end{enumerate}
 
-
+	\begin{figure}[H]
+		\begin{center}
+			\includegraphics[width=5.5cm]{./img/schemat_1.png}
+			\caption{Schemat blokowy algorytmu metody indeksu}
+		\end{center}
+	\end{figure}
 
 
 
