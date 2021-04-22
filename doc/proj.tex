@@ -25,7 +25,7 @@
 
 \begin{abstract}
 
-Poniższe sprawozdanie jest wynikiem naszej pracy na drugim etapie projektu zespołowego z implementacji metody indeksu w architekturach GPU. Przedstawimy w nim przygotowane przez nas projekty i rysunki koncepcyjne wymaganych do zaimplementowania algorytmów.
+Poniższe sprawozdanie jest wynikiem pracy na drugim etapie projektu zespołowego z implementacji metody indeksu w architekturach GPU. Przedstawiono w nim przygotowane przez zespół projekty i rysunki koncepcyjne wymaganych do zaimplementowania algorytmów.
 
 \tableofcontents
 \newpage
@@ -33,7 +33,7 @@ Poniższe sprawozdanie jest wynikiem naszej pracy na drugim etapie projektu zesp
 \end{abstract}
 
 \section{Mnożenie modularne dużych liczb}
-	W celu wykonania mnożenia dużych liczb \(a, b \in \mathbb{F}_p\) wykorzystamy algorytm \ref{mult}.
+	W celu wykonania mnożenia dużych liczb \(a, b \in \mathbb{F}_p\) wykorzystany zostanie algorytm \ref{mult}.
 	Pierwszym krokiem jest przedstawienie liczb \(a, b\) w postaci \(a = x_1 \cdot 2^{32} + y_1\) oraz 
 	\(b = x_2 \cdot 2^{32} + y_2\).
 	\newline
@@ -107,8 +107,8 @@ Poniższe sprawozdanie jest wynikiem naszej pracy na drugim etapie projektu zesp
 	\end{algorithm}
 	
 	\subsection{Faktoryzacja w bazie}
-		Mamy bazę \(\mathcal{N} = \{2, 3, \dots p_k\}\), gdzie \(p_i \in \mathcal{P}\) i \(p_k\) jest największą liczbą pierwszą mniejszą \(B\). 
-		W celu faktoryzacji wykorzystamy algorytm \ref{factor}.
+		Dana jest baza \(\mathcal{N} = \{2, 3, \dots p_k\}\), gdzie \(p_i \in \mathcal{P}\) i \(p_k\) jest największą liczbą pierwszą mniejszą \(B\). 
+		W celu faktoryzacji wykorzystany zostanie algorytm \ref{factor}.
 		\begin{algorithm}
 			\SetAlgoLined
 			\caption{Faktoryzacja w bazie, \texttt{factor}}
@@ -157,9 +157,9 @@ Poniższe sprawozdanie jest wynikiem naszej pracy na drugim etapie projektu zesp
 		\end{algorithm}
 		
 	\subsection{Budowa relacji}
-		W celu zbudowania relacji \(\mathcal{R}\) generujemy \(l\) liczb losowych \(e_i\). A następnie wykorzystując algorytm \ref{szybkie_pot} wyznaczamy wartości \(a^{e_i}\). 
+		W celu zbudowania relacji \(\mathcal{R}\) generowanych jest \(l\) liczb losowych \(e_i\). Następnie, przy wykorzystaniu algorytmu \ref{szybkie_pot}, wyznaczane są wartości \(a^{e_i}\). 
 		\newline
-		Niech \(e\) będzie tablicą \(l\)- elementową, jako \(fastPow(a, e, p)\) rozumiemy jednoczesne wykonanie \(fastPow(a, e_i, p)\) dla każdego elementu tablicy z wykorzystaniem karty graficznej. 
+		Niech \(e\) będzie tablicą \(l\)- elementową, jako \(fastPow(a, e, p)\) rozumiane jest jednoczesne wykonanie \(fastPow(a, e_i, p)\) dla każdego elementu tablicy z wykorzystaniem karty graficznej. 
 		\begin{algorithm}
 			\SetAlgoLined
 			\caption{Budowa relacji, \texttt{relationBuild}}
@@ -186,7 +186,7 @@ Poniższe sprawozdanie jest wynikiem naszej pracy na drugim etapie projektu zesp
 
 \section{Eliminacja Gaussa w pierścieniu \(\mathbb{Z}_{p-1}\)}
 	\subsection{Algorytm Euklidesa}
-		Poniższy algorytm wykorzystuje algorytm Euklidesa do sprawdzenia, czy podane na wejściu dwie liczby są względnie pierwsze. \\
+		Poniższy schemat wykorzystuje algorytm Euklidesa do sprawdzenia, czy podane na wejściu dwie liczby są względnie pierwsze. \\
 	\begin{algorithm}[H]
 
 		\caption{Algorytm Euklidesa}
@@ -210,7 +210,7 @@ Poniższe sprawozdanie jest wynikiem naszej pracy na drugim etapie projektu zesp
 	\begin{center}
 		$ps + at = 1$,
 	\end{center}
-	Wówczas po zredukowaniu tej równości modulo $p$ otrzymujemy
+	Wówczas, po zredukowaniu tej równości modulo $p$, otrzymuje się
 	\begin{center}
 		$at \equiv 1$ mod $p$,
 	\end{center}
