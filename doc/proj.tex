@@ -33,13 +33,156 @@ Poniższe sprawozdanie jest wynikiem naszej pracy na drugim etapie projektu zesp
 \end{abstract}
 
 \section{Mnożenie modularne dużych liczb}
+	W celu wykonania mnożenia dużych liczb \(a, b \in \mathbb{F}_p\) wykorzystamy algorytm \ref{mult}.
+	Pierwszym krokiem jest przedstawienie liczb \(a, b\) w postaci \(a = x_1 \cdot 2^{32} + y_1\) oraz 
+	\(b = x_2 \cdot 2^{32} + y_2\).
+	\newline
+	Wtedy
+	\newline
+	\(r_p = r_p(ab) = r_p((x_1 \cdot 2^{32} + y_1)(x_2 \cdot 2^{32} + y_2)) = r_p(x_1x_2 \cdot_p 2^{64}) +_p r_p(x_1y_2 \cdot_p 2^{32}) +_p r_p(x_2y_1 \cdot_p 2^{32}) +_p r_p(y_1y_2)\).
+	\newline 
+	Do wyznaczenia pośrednich wartości \(r_p\) wykorzystywany jest algorytm \ref{half_mult}. Algorytm mnożenia pośredniego działa analogicznie do algorytmu \ref{mult}. Różnicą jest przedstawienie czynników jako \(x \cdot 2^{16} + y\).
+	
+	
+	\begin{algorithm}
+		\SetAlgoLined
+		\caption{Mnożenie pośrednie, \texttt{halfMult}}
+		\label{half_mult}
+		\KwIn{\(a,b\) - dwie liczby całkowite, \(p\) - modulnik}
+		\KwOut{\(result\) - wynik mnożenia}
+		\(x_1 \gets a >> 16\)\\
+		\(y_1 \gets a \; \&\& \; 0xffff \) \\
+		\(x_2 \gets b >> 16\)\\
+		\(y_2 \gets b \; \&\& \; 0xffff \) \\
+		\(half_a \gets (((x_1 x_2) \% p) \cdot r_p(2^{32})) \%p\) \\
+		\(half_b \gets (((x_1 y_2) \% p) \cdot r_p(2^{16})) \%p\) \\
+		\(half_c \gets (((x_2 y_1) \% p) \cdot r_p(2^{16})) \%p\) \\
+		\(half_d \gets (y_1 y_2) \%p\) \\
+		\Return{\((half_a + half_b + half_c + half_d) \% p\)}
+	\end{algorithm}
+	
+	\begin{algorithm}
+		\SetAlgoLined
+		\caption{Pełne mnożenie modularne dwóch liczb, \texttt{mult}}
+		\label{mult}
+		\KwIn{\(a,b\) - dwie liczby całkowite, \(p\) - modulnik}
+		\KwOut{\(result\) - wynik mnożenia}
+		\(x_1 \gets a >> 32\)\\
+		\(y_1 \gets a \; \&\& \; 0xffffffff \) \\
+		\(x_2 \gets b >> 32\)\\
+		\(y_2 \gets b \; \&\& \; 0xffffffff \) \\
+		\(half_a \gets (halfMult(x_1, x_2) \cdot r_p(2^{64})) \% p\) \\
+		\(half_b \gets (halfMult(x_1, y_2) \cdot r_p(2^{32})) \% p\) \\
+		\(half_c \gets (halfMult(x_2, y_1) \cdot r_p(2^{32})) \% p\) \\
+		\(half_a \gets halfMult(y_1, y_2)\) \\
+		\Return{\((half_a + half_b + half_c + half_d) \% p\)}
+	\end{algorithm}
 	
 \section{Poszukiwanie relacji i faktoryzacja w bazie}
 	\subsection{Szybkie potęgowanie modularne}
+	Metoda indeksu wymaga obliczenia wartości typu $a^{b}\;{mod}\;n$.
+	Szybkie potęgowanie modularne jest prostym algorytmem pozwalającym zredukować liczbę mnożeń i dzieleń modulo z $b$ do \textit{O(log b)}.
 	
-	\subsection{Fakoryzacja w bazie}
+	\begin{algorithm}[H]
+		\caption{Szybkie potęgowanie modularne,  \texttt{fastPow}} 
+		\label{szybkie_pot} 
+		\SetKwInOut{Input}{Input}\SetKwInOut{Output}{Output}
+		\Input{podstawa potęgi $a$, wykładnik potęgi $b$, modulnik $n$}
+		\Output{$a^{b}\;mod\;n$}
+		\BlankLine
+		$bits \gets to\_bin(b)$\\
+		$nbits \gets length(bits)$\\
+		$a \gets a\%n$\\
+		$result \gets 1$\\
+		$x \gets a$\\
+		\For{i \(\gets\) 0 \textbf{to} nbits}{
+			\If{bits[i]==1}{
+				$result \gets result*x$\\
+				$result \gets result\%n$\\
+			}
+			$x \gets x*x$\\
+			$x \gets x\%n$\\
+		}
+		\Return{$result$}
+	\end{algorithm}
 	
+	\subsection{Faktoryzacja w bazie}
+		Mamy bazę \(\mathcal{N} = \{2, 3, \dots p_k\}\), gdzie \(p_i \in \mathcal{P}\) i \(p_k\) jest największą liczbą pierwszą mniejszą \(B\). 
+		W celu faktoryzacji wykorzystamy algorytm \ref{factor}.
+		\begin{algorithm}
+			\SetAlgoLined
+			\caption{Faktoryzacja w bazie, \texttt{factor}}
+			\label{factor}
+			\KwIn{\(a\) - faktoryzowana liczba, \(\mathcal{N}\) - baza rozkładu}
+			\KwOut{\(result = [e_1, e_2, \dots, e_k]\) - czynniki}
+			\For{\(i \gets 0\) \textbf{to} \(k\)}
+			{
+				\(counter \gets 0\) \\
+				\While{\(a \% N[i]\)}
+				{
+					\(a \gets \frac{a}{N[i]}\) \\
+					\(counter \gets counter + 1\) \\
+				}
+				\(result[i] \gets counter\) \\
+			}
+			\Return{\(result\)}
+		\end{algorithm}
+	
+		\begin{algorithm}
+			\SetAlgoLined
+			\caption{Sprawdzenie czy liczba faktoryzuje się w wybranej bazie, \texttt{IsFactor}}
+			\label{factor_alt}
+			\KwIn{\(a\) - faktoryzowana liczba, \(\mathcal{N}\) - baza rozkładu}
+			\KwOut{\(result = [e_1, e_2, \dots, e_k]\) - czynniki}
+			\For{\(i \gets 0\) \textbf{to} \(k\)}
+			{
+				\(counter \gets 0\) \\
+				\While{\(a \% N[i]\)}
+				{
+					\(a \gets \frac{a}{N[i]}\) \\
+					\(counter \gets counter + 1\) \\
+				}
+				\(result[i] \gets counter\) \\
+			}
+			\If{\(a == 1\)}
+			{
+				\Return{\(True\)}
+			}
+			\Else
+			{
+				\Return{\(False\)}
+			}
+			
+			
+		\end{algorithm}
+		
 	\subsection{Budowa relacji}
+		W celu zbudowania relacji \(\mathcal{R}\) generujemy \(l\) liczb losowych \(e_i\). A następnie wykorzystując algorytm \ref{szybkie_pot} wyznaczamy wartości \(a^{e_i}\). 
+		\newline
+		Niech \(e\) będzie tablicą \(l\)- elementową, jako \(fastPow(a, e, p)\) rozumiemy jednoczesne wykonanie \(fastPow(a, e_i, p)\) dla każdego elementu tablicy z wykorzystaniem karty graficznej. 
+		\begin{algorithm}
+			\SetAlgoLined
+			\caption{Budowa relacji, \texttt{relationBuild}}
+			\label{relation}
+			\KwIn{\(a\) - generator, \(l\) - wielkość zbioru relacji, \(p\) - modulnik}
+			\KwOut{\(R\) - zbiór relacji}
+			\For{\(i \gets 0\) \textbf{to} \(l\)}
+			{
+				\(e[i] \gets randomInt()\)
+			}
+			\(R \gets fastPow(a, e, p)\) \\
+			\For{\(i \gets 0\) \textbf{to} \(l\)}
+			{
+				\While{ \textbf{not} \(isFactored(R[i])\)}
+				{
+					\(R[i] \gets fastPow(a, randomInt(), p)\)
+				}
+			}
+		
+			\Return{\(R\)}
+		\end{algorithm}
+
+
 
 \section{Eliminacja Gaussa w pierścieniu \(\mathbb{Z}_{p-1}\)}
 	\subsection{Algorytm Euklidesa}
