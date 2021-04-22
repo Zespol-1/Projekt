@@ -1,6 +1,7 @@
 \documentclass[]{article}
 \usepackage[T1]{fontenc}
 \usepackage{amsfonts}
+\usepackage{amsmath} 
 \usepackage{graphicx}
 \usepackage{float}
 \usepackage[polish]{babel} % English language/hyphenation
@@ -24,13 +25,11 @@
 
 
 \begin{abstract}
-
 Poniższe sprawozdanie jest wynikiem pracy na drugim etapie projektu zespołowego z implementacji metody indeksu w architekturach GPU. Przedstawiono w nim przygotowane przez zespół projekty i rysunki koncepcyjne wymaganych do zaimplementowania algorytmów.
+\end{abstract}
 
 \tableofcontents
 \newpage
-
-\end{abstract}
 
 \section{Mnożenie modularne dużych liczb}
 	W celu wykonania mnożenia dużych liczb \(a, b \in \mathbb{F}_p\) wykorzystany zostanie algorytm \ref{mult}.
@@ -42,9 +41,8 @@ Poniższe sprawozdanie jest wynikiem pracy na drugim etapie projektu zespołoweg
 	\(r_p = r_p(ab) = r_p((x_1 \cdot 2^{32} + y_1)(x_2 \cdot 2^{32} + y_2)) = r_p(x_1x_2 \cdot_p 2^{64}) +_p r_p(x_1y_2 \cdot_p 2^{32}) +_p r_p(x_2y_1 \cdot_p 2^{32}) +_p r_p(y_1y_2)\).
 	\newline 
 	Do wyznaczenia pośrednich wartości \(r_p\) wykorzystywany jest algorytm \ref{half_mult}. Algorytm mnożenia pośredniego działa analogicznie do algorytmu \ref{mult}. Różnicą jest przedstawienie czynników jako \(x \cdot 2^{16} + y\).
-	
-	
-	\begin{algorithm}
+	\newline
+	\begin{algorithm}[H]
 		\SetAlgoLined
 		\caption{Mnożenie pośrednie, \texttt{halfMult}}
 		\label{half_mult}
@@ -61,7 +59,7 @@ Poniższe sprawozdanie jest wynikiem pracy na drugim etapie projektu zespołoweg
 		\Return{\((half_a + half_b + half_c + half_d) \% p\)}
 	\end{algorithm}
 	
-	\begin{algorithm}
+	\begin{algorithm}[H]
 		\SetAlgoLined
 		\caption{Pełne mnożenie modularne dwóch liczb, \texttt{mult}}
 		\label{mult}
@@ -78,11 +76,12 @@ Poniższe sprawozdanie jest wynikiem pracy na drugim etapie projektu zespołoweg
 		\Return{\((half_a + half_b + half_c + half_d) \% p\)}
 	\end{algorithm}
 	
+\newpage
 \section{Poszukiwanie relacji i faktoryzacja w bazie}
 	\subsection{Szybkie potęgowanie modularne}
 	Metoda indeksu wymaga obliczenia wartości typu $a^{b}\;{mod}\;n$.
 	Szybkie potęgowanie modularne jest prostym algorytmem pozwalającym zredukować liczbę mnożeń i dzieleń modulo z $b$ do \textit{O(log b)}.
-	
+	\newline
 	\begin{algorithm}[H]
 		\caption{Szybkie potęgowanie modularne,  \texttt{fastPow}} 
 		\label{szybkie_pot} 
@@ -109,7 +108,8 @@ Poniższe sprawozdanie jest wynikiem pracy na drugim etapie projektu zespołoweg
 	\subsection{Faktoryzacja w bazie}
 		Dana jest baza \(\mathcal{N} = \{2, 3, \dots p_k\}\), gdzie \(p_i \in \mathcal{P}\) i \(p_k\) jest największą liczbą pierwszą mniejszą \(B\). 
 		W celu faktoryzacji wykorzystany zostanie algorytm \ref{factor}.
-		\begin{algorithm}
+		\newline
+		\begin{algorithm}[H]
 			\SetAlgoLined
 			\caption{Faktoryzacja w bazie, \texttt{factor}}
 			\label{factor}
@@ -128,7 +128,7 @@ Poniższe sprawozdanie jest wynikiem pracy na drugim etapie projektu zespołoweg
 			\Return{\(result\)}
 		\end{algorithm}
 	
-		\begin{algorithm}
+		\begin{algorithm}[H]
 			\SetAlgoLined
 			\caption{Sprawdzenie czy liczba faktoryzuje się w wybranej bazie, \texttt{IsFactor}}
 			\label{factor_alt}
@@ -159,8 +159,9 @@ Poniższe sprawozdanie jest wynikiem pracy na drugim etapie projektu zespołoweg
 	\subsection{Budowa relacji}
 		W celu zbudowania relacji \(\mathcal{R}\) generowanych jest \(l\) liczb losowych \(e_i\). Następnie, przy wykorzystaniu algorytmu \ref{szybkie_pot}, wyznaczane są wartości \(a^{e_i}\). 
 		\newline
-		Niech \(e\) będzie tablicą \(l\)- elementową, jako \(fastPow(a, e, p)\) rozumiane jest jednoczesne wykonanie \(fastPow(a, e_i, p)\) dla każdego elementu tablicy z wykorzystaniem karty graficznej. 
-		\begin{algorithm}
+		Niech \(e\) będzie tablicą \(l\)- elementową, jako \(fastPow(a, e, p)\) rozumiane jest jednoczesne wykonanie \(fastPow(a, e_i, p)\) dla każdego elementu tablicy z wykorzystaniem procesora graficznego. 
+		\newline
+		\begin{algorithm}[H]
 			\SetAlgoLined
 			\caption{Budowa relacji, \texttt{relationBuild}}
 			\label{relation}
@@ -183,62 +184,111 @@ Poniższe sprawozdanie jest wynikiem pracy na drugim etapie projektu zespołoweg
 		\end{algorithm}
 
 
-
+\newpage
 \section{Eliminacja Gaussa w pierścieniu \(\mathbb{Z}_{p-1}\)}
 	\subsection{Algorytm Euklidesa}
 		Poniższy schemat wykorzystuje algorytm Euklidesa do sprawdzenia, czy podane na wejściu dwie liczby są względnie pierwsze. \\
 	\begin{algorithm}[H]
-
-		\caption{Algorytm Euklidesa}
+		\label{Euklid}
+		\caption{Algorytm Euklidesa, \texttt{isInversible}}
 		\KwIn{$a, b$ - liczby naturalne}
 		\KwOut{True, jeśli $\gcd(a,b) == 1$, False w przeciwnym przypadku.}
 		\BlankLine
 		\While{$b \neq 0$}{
-			$temp := b$ \\
-			$b := a$ mod $  b$ \\
-			$a := temp$} 
-		\If{$a == 1$}{$output := True$ }
-		\Else{$output := False$}
+			$temp \gets b$ \\
+			$b \gets a$ mod $  b$ \\
+			$a \gets temp$} 
+		\If{$a == 1$}{\Return{\(True\)} }
+		\Else{\Return{\(False\)}}
 		
-		\KwResult{output}
 	\end{algorithm}
 
 	\subsection{Rozszerzony algorytm Euklidesa}
-	
-	Tożsamość Bezout mówi, że liczby $a$ i $p$ są względnie pierwsze i wtedy i tylko wtedy, gdy istnieją takie liczby $s$ i $t$, że
-	
-	\begin{center}
-		$ps + at = 1$,
-	\end{center}
-	Wówczas, po zredukowaniu tej równości modulo $p$, otrzymuje się
-	\begin{center}
-		$at \equiv 1$ mod $p$,
-	\end{center}
-	 czyli $t$ jest elementem odwrotnym $a$ w pierścieniu $Z_{p}$. \\
-	
-	Poniższy algorytm odnajduje element odwrotny do elementu $a$ w pierścieniu $Z_{p}$. \\
-	
-	\begin{algorithm}[H]
-		\caption{Rozszerzony Algorytm Euklidesa}
-		\KwIn{$a, p$ - liczby naturalne}
-		\KwOut{$x = a^{-1}$ mod $p$ lub informacja, że taka liczba nie istnieje}
-		\BlankLine
-		$u \leftarrow 1, w \leftarrow a, x \leftarrow 0, \leftarrow p$ \\
-		\While{$w \neq 0$}{
-			\If{$w < z$}{
-				$swap(u, x)$ \\
-				$swap(w, z)$
+		Tożsamość Bezout mówi, że liczby $a$ i $p$ są względnie pierwsze i wtedy i tylko wtedy, gdy istnieją takie liczby $s$ i $t$, że
+		\begin{center}
+			$ps + at = 1$,
+		\end{center}
+		Wówczas, po zredukowaniu tej równości modulo $p$, otrzymuje się
+		\begin{center}
+			$at \equiv 1$ mod $p$,
+		\end{center}
+		 czyli $t$ jest elementem odwrotnym $a$ w pierścieniu $Z_{p}$. \\
+		Wykorzystując poniższy algorytm możemy znaleźć odwrotność w dowolnym pierścieniu liczbowym.
+		
+		\begin{algorithm}[H]
+			\label{extEuklid}
+			\caption{Rozszerzony Algorytm Euklidesa, \texttt{inverse}}
+			\KwIn{$a, p$ - liczby naturalne}
+			\KwOut{$x = a^{-1}$ mod $p$ lub informacja, że taka liczba nie istnieje}
+			\BlankLine
+			$u \leftarrow 1, w \leftarrow a, x \leftarrow 0, \leftarrow p$ \\
+			\While{$w \neq 0$}{
+				\If{$w < z$}{
+					$swap(u, x)$ \\
+					$swap(w, z)$
+				}
+				$q \leftarrow w / z - (w\%z)$ \\
+				$u \leftarrow u - q \cdot x$
+				$w \leftarrow w - q \cdot z$	
 			}
-			$q \leftarrow w / z - (w\%z)$ \\
-			$u \leftarrow u - q \cdot x$
-			$w \leftarrow w - q \cdot z$
-				
-		}
-		\If{$z \neq 1$}{\textbf{Result} None}
-		\If{$ x < 0$}{$x \leftarrow x + p$}
+			\If{$z \neq 1$}{\Return{\(None\)}}
+			\If{$ x < 0$}{\(x \gets x + p\)}
+			\Return{x}	
+		\end{algorithm}
+	\section{Eliminacja Gaussa}
+		Przyjmijmy, że 
+		\newline
+		\(\mathbb{A}_{l,k} = 
+		\begin{bmatrix}
+			a_{0,0} & a_{0,1} & \cdots & a_{0,k} \\
+			a_{1,0} & a_{1,1} & \cdots & a_{1,k} \\
+			\vdots & \vdots & & \vdots \\
+			a_{l,0} & a_{l,1} & \cdots & a_{l,k} 
+		\end{bmatrix} \), 
+		\newline
+		jako \(\mathbb{A}_i = [a_{i,0}, a_{i,1}, \dots, a_{i,k}]\) oznaczamy \(i\)-wiersz macierzy. Wtedy, następujący zapis \(\mathbb{C} = \mathbb{A}_n - \mathbb{A}_m\), gdzie \(\mathbb{C} = [c_0, c_1, \dots, c_k]\) oznacza jednoczesne wykonanie działania \(c_j = \mathbb{A}_{n,j} - \mathbb{A}_{m,j}\) dla każdego elementu wiersza z wykorzystaniem procesora graficznego. Natomiast \(\mathbb{C} = mult(\mathbb{A}_m, b)\) rozumiemy jako jednoczesne wykonanie \(mult(a_{m,j}, b)\). 
 		
-		
-		\KwResult{x}	
-	\end{algorithm}
+		\begin{algorithm}[H]
+			\SetAlgoLined
+			\label{Gauss}
+			\caption{Algorytm eliminacji Gaussa, \texttt{Gauss}}
+			\KwIn{\(\mathbb{A}_{l,k} = \mathbb{A}_{l-1,k} \| \mathbb{E}_{1,k}\)}
+			\KwOut{\(\mathbb{X}_{1,k}\)}
+			\For{\(j \gets 0\) \textbf{to} \(l\)}
+			{
+				\For{\(i \gets 0\) \textbf{to} \(k\)}
+				{
+					\If{\(i \neq j\)}
+					{
+						\If{\(isInversible(a_{j,j})\)}
+						{
+							\(b \gets mult(a_{i,j}, inverse(a_{j,j}, p-1))\) \\
+							\(tmp \gets mult(\mathbb{A}_i, b)\) \\
+							\(\mathbb{A}_i \gets \mathbb{A}_i - tmp\)
+						}
+						\Else
+						{
+							\(swap(\mathbb{A}_i, \mathbb{A}_{i+1})\) \\
+							\(i \gets i - 1\)
+						}
+					}
+				}
+			}
+			\For{\(i \gets 0\) \textbf{to} \(k\)}
+			{
+				\If{\(isInversible(a_{i,i})\)}
+				{
+					\(b \gets inverse(a_{i,i}, p)\) \\
+					\(\mathbb{A}_i \gets mult(\mathbb{A}_i, b)\) \\
+				}
+				\Else
+				{
+					\Return{\(None\)}
+				}
+			}
+			\Return{\(\mathbb{A}_k\)}	
+		\end{algorithm}
+			
+	
 	
 \end{document}
