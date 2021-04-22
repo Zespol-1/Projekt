@@ -33,6 +33,50 @@ Poniższe sprawozdanie jest wynikiem naszej pracy na drugim etapie projektu zesp
 \end{abstract}
 
 \section{Mnożenie modularne dużych liczb}
+	W celu wykonania mnożenia dużych liczb \(a, b \in \mathbb{F}_p\) wykorzystamy algorytm \ref{mult}.
+	Pierwszym krokiem jest przedstawienie liczb \(a, b\) w postaci \(a = x_1 \cdot 2^{32} + y_1\) oraz 
+	\(b = x_2 \cdot 2^{32} + y_2\).
+	\newline
+	Wtedy
+	\newline
+	\(r_p = r_p(ab) = r_p((x_1 \cdot 2^{32} + y_1)(x_2 \cdot 2^{32} + y_2)) = r_p(x_1x_2 \cdot_p 2^{64}) +_p r_p(x_1y_2 \cdot_p 2^{32}) +_p r_p(x_2y_1 \cdot_p 2^{32}) +_p r_p(y_1y_2)\).
+	\newline 
+	Do wyznaczenia pośrednich wartości \(r_p\) wykorzystywany jest algorytm \ref{half_mult}. Algorytm mnożenia pośredniego działa analogicznie do algorytmu \ref{mult}. Różnicą jest przedstawienie czynników jako \(x \cdot 2^{16} + y\).
+	
+	
+	\begin{algorithm}
+		\SetAlgoLined
+		\caption{Mnożenie pośrednie, \textit{halfMult}}
+		\label{half_mult}
+		\KwIn{\(a,b\) - dwie liczby całkowite, \(p\) - modulnik}
+		\KwOut{\(result\) - wynik mnożenia}
+		\(x_1 \gets a >> 16\)\\
+		\(y_1 \gets a \; \&\& \; 0xffff \) \\
+		\(x_2 \gets b >> 16\)\\
+		\(y_2 \gets b \; \&\& \; 0xffff \) \\
+		\(half_a \gets (((x_1 x_2) \% p) \cdot r_p(2^{32})) \%p\) \\
+		\(half_b \gets (((x_1 y_2) \% p) \cdot r_p(2^{16})) \%p\) \\
+		\(half_c \gets (((x_2 y_1) \% p) \cdot r_p(2^{16})) \%p\) \\
+		\(half_d \gets (y_1 y_2) \%p\) \\
+		\Return{\((half_a + half_b + half_c + half_d) \% p\)}
+	\end{algorithm}
+	
+	\begin{algorithm}
+		\SetAlgoLined
+		\caption{Pełne mnożenie modularne dwóch liczb}
+		\label{mult}
+		\KwIn{\(a,b\) - dwie liczby całkowite, \(p\) - modulnik}
+		\KwOut{\(result\) - wynik mnożenia}
+		\(x_1 \gets a >> 32\)\\
+		\(y_1 \gets a \; \&\& \; 0xffffffff \) \\
+		\(x_2 \gets b >> 32\)\\
+		\(y_2 \gets b \; \&\& \; 0xffffffff \) \\
+		\(half_a \gets (halfMult(x_1, x_2) \cdot r_p(2^{64})) \% p\) \\
+		\(half_b \gets (halfMult(x_1, y_2) \cdot r_p(2^{32})) \% p\) \\
+		\(half_c \gets (halfMult(x_2, y_1) \cdot r_p(2^{32})) \% p\) \\
+		\(half_a \gets halfMult(y_1, y_2)\) \\
+		\Return{\((half_a + half_b + half_c + half_d) \% p\)}
+	\end{algorithm}
 	
 \section{Poszukiwanie relacji i faktoryzacja w bazie}
 	\subsection{Szybkie potęgowanie modularne}
