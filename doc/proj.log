@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2020.11.5)  22 APR 2021 12:28
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2020.11.10)  22 APR 2021 13:55
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -6,9 +6,9 @@ entering extended mode
 (./proj.tex
 LaTeX2e <2020-02-02> patch level 5
 L3 programming layer <2020-03-06>
-(d:/texlive/2020/texmf-dist/tex/latex/base/article.cls
+(c:/texlive/2020/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2019/12/20 v1.4l Standard LaTeX document class
-(d:/texlive/2020/texmf-dist/tex/latex/base/size10.clo
+(c:/texlive/2020/texmf-dist/tex/latex/base/size10.clo
 File: size10.clo 2019/12/20 v1.4l Standard LaTeX file (size option)
 )
 \c@part=\count167
@@ -23,10 +23,10 @@ File: size10.clo 2019/12/20 v1.4l Standard LaTeX file (size option)
 \belowcaptionskip=\skip48
 \bibindent=\dimen134
 )
-(d:/texlive/2020/texmf-dist/tex/latex/base/fontenc.sty
+(c:/texlive/2020/texmf-dist/tex/latex/base/fontenc.sty
 Package: fontenc 2020/02/11 v2.0o Standard LaTeX package
 )
-(d:/texlive/2020/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+(c:/texlive/2020/texmf-dist/tex/latex/amsfonts/amsfonts.sty
 Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
 \@emptytoks=\toks15
 \symAMSa=\mathgroup4
@@ -35,31 +35,31 @@ LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
 )
-(d:/texlive/2020/texmf-dist/tex/latex/graphics/graphicx.sty
+(c:/texlive/2020/texmf-dist/tex/latex/graphics/graphicx.sty
 Package: graphicx 2019/11/30 v1.2a Enhanced LaTeX Graphics (DPC,SPQR)
 
-(d:/texlive/2020/texmf-dist/tex/latex/graphics/keyval.sty
+(c:/texlive/2020/texmf-dist/tex/latex/graphics/keyval.sty
 Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
 \KV@toks@=\toks16
 )
-(d:/texlive/2020/texmf-dist/tex/latex/graphics/graphics.sty
+(c:/texlive/2020/texmf-dist/tex/latex/graphics/graphics.sty
 Package: graphics 2019/11/30 v1.4a Standard LaTeX Graphics (DPC,SPQR)
 
-(d:/texlive/2020/texmf-dist/tex/latex/graphics/trig.sty
+(c:/texlive/2020/texmf-dist/tex/latex/graphics/trig.sty
 Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
 )
-(d:/texlive/2020/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+(c:/texlive/2020/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
 File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
 Package graphics Info: Driver file: pdftex.def on input line 105.
 
-(d:/texlive/2020/texmf-dist/tex/latex/graphics-def/pdftex.def
+(c:/texlive/2020/texmf-dist/tex/latex/graphics-def/pdftex.def
 File: pdftex.def 2018/01/08 v1.0l Graphics/color driver for pdftex
 ))
 \Gin@req@height=\dimen135
 \Gin@req@width=\dimen136
 )
-(d:/texlive/2020/texmf-dist/tex/latex/float/float.sty
+(c:/texlive/2020/texmf-dist/tex/latex/float/float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \c@float@type=\count175
 \float@exts=\toks17
@@ -67,21 +67,21 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \@float@everytoks=\toks18
 \@floatcapt=\box46
 )
-(d:/texlive/2020/texmf-dist/tex/generic/babel/babel.sty
+(c:/texlive/2020/texmf-dist/tex/generic/babel/babel.sty
 Package: babel 2020/03/22 3.42 The Babel package
 
-(d:/texlive/2020/texmf-dist/tex/generic/babel/switch.def
+(c:/texlive/2020/texmf-dist/tex/generic/babel/switch.def
 File: switch.def 2020/03/22 3.42 Babel switching mechanism
 )
-(d:/texlive/2020/texmf-dist/tex/generic/babel-polish/polish.ldf
+(c:/texlive/2020/texmf-dist/tex/generic/babel-polish/polish.ldf
 Language: polish 2005/03/31 v1.2l Polish support from the babel system
 
-(d:/texlive/2020/texmf-dist/tex/generic/babel/babel.def
+(c:/texlive/2020/texmf-dist/tex/generic/babel/babel.def
 File: babel.def 2020/03/22 3.42 Babel common definitions
 \babel@savecnt=\count176
 \U@D=\dimen137
 
-(d:/texlive/2020/texmf-dist/tex/generic/babel/txtbabel.def)
+(c:/texlive/2020/texmf-dist/tex/generic/babel/txtbabel.def)
 \bbl@readstream=\read2
 \bbl@dirlevel=\count177
 )
@@ -91,23 +91,23 @@ Package babel Info: Making " an active character on input line 83.
 \pl@right=\dimen140
 \pl@temp=\dimen141
 ))
-(d:/texlive/2020/texmf-dist/tex/latex/algorithm2e/algorithm2e.sty
+(c:/texlive/2020/texmf-dist/tex/latex/algorithm2e/algorithm2e.sty
 Package: algorithm2e 2017/07/18 v5.2 algorithms environments
 \c@AlgoLine=\count178
 
-(d:/texlive/2020/texmf-dist/tex/latex/base/ifthen.sty
+(c:/texlive/2020/texmf-dist/tex/latex/base/ifthen.sty
 Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
 )
 \algocf@hangindent=\skip49
 
-(d:/texlive/2020/texmf-dist/tex/latex/ifoddpage/ifoddpage.sty
+(c:/texlive/2020/texmf-dist/tex/latex/ifoddpage/ifoddpage.sty
 Package: ifoddpage 2016/04/23 v1.1 Conditionals for odd/even page detection
 \c@checkoddpage=\count179
 )
-(d:/texlive/2020/texmf-dist/tex/latex/tools/xspace.sty
+(c:/texlive/2020/texmf-dist/tex/latex/tools/xspace.sty
 Package: xspace 2014/10/28 v1.13 Space after command names (DPC,MH)
 )
-(d:/texlive/2020/texmf-dist/tex/latex/relsize/relsize.sty
+(c:/texlive/2020/texmf-dist/tex/latex/relsize/relsize.sty
 Package: relsize 2013/03/29 ver 4.1
 )
 \skiptotal=\skip50
@@ -146,7 +146,7 @@ Package: relsize 2013/03/29 ver 4.1
 \algocf@algoframe=\box53
 \algocf@algobox=\box54
 )
-(d:/texlive/2020/texmf-dist/tex/latex/l3backend/l3backend-pdfmode.def
+(c:/texlive/2020/texmf-dist/tex/latex/l3backend/l3backend-pdfmode.def
 File: l3backend-pdfmode.def 2020-03-12 L3 backend support: PDF mode
 \l__kernel_color_stack_int=\count183
 \l__pdf_internal_box=\box55
@@ -168,7 +168,7 @@ LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 19.
 LaTeX Font Info:    ... okay on input line 19.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 19.
 LaTeX Font Info:    ... okay on input line 19.
- (d:/texlive/2020/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+ (c:/texlive/2020/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count184
 \scratchdimen=\dimen148
@@ -181,60 +181,74 @@ LaTeX Font Info:    ... okay on input line 19.
 \MPnumerator=\count188
 \makeMPintoPDFobject=\count189
 \everyMPtoPDFconversion=\toks20
-) (d:/texlive/2020/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
+) (c:/texlive/2020/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 85.
 
-(d:/texlive/2020/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+(c:/texlive/2020/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
 LaTeX Font Info:    Trying to load font information for U+msa on input line 21.
 
 
-(d:/texlive/2020/texmf-dist/tex/latex/amsfonts/umsa.fd
+(c:/texlive/2020/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
 LaTeX Font Info:    Trying to load font information for U+msb on input line 21.
 
 
-(d:/texlive/2020/texmf-dist/tex/latex/amsfonts/umsb.fd
+(c:/texlive/2020/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
 
-{d:/texlive/2020/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] (./proj.toc)
+{c:/texlive/2020/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] (./proj.toc)
 \tf@toc=\write3
 \openout3 = `proj.toc'.
 
- [2] [3] (./proj.aux) ) 
+ [2]
+Underfull \hbox (badness 10000) in paragraph at lines 74--75
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 76--77
+
+ []
+
+[3] [4] (./proj.aux) ) 
 Here is how much of TeX's memory you used:
- 3247 strings out of 480608
- 46008 string characters out of 5907536
- 302097 words of memory out of 5000000
- 19105 multiletter control sequences out of 15000+600000
- 548699 words of font info for 71 fonts, out of 8000000 for 9000
+ 3254 strings out of 480608
+ 46088 string characters out of 5907535
+ 307097 words of memory out of 5000000
+ 19109 multiletter control sequences out of 15000+600000
+ 550942 words of font info for 74 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 30i,6n,27p,284b,266s stack positions out of 5000i,500n,10000p,200000b,80000s
-{d:/texlive/2020/texmf-dist/fonts/enc/dvips/cm-super/cm-
-super-t1.enc}<d:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.
-pfb><d:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb><d:/te
-xlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><d:/texlive/2020
-/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb><d:/texlive/2020/texmf-dist
-/fonts/type1/public/amsfonts/cm/cmsy10.pfb><d:/texlive/2020/texmf-dist/fonts/ty
-pe1/public/amsfonts/cm/cmsy6.pfb><d:/texlive/2020/texmf-dist/fonts/type1/public
-/amsfonts/symbols/msbm10.pfb><d:/texlive/2020/texmf-dist/fonts/type1/public/cm-
-super/sfbx0900.pfb><d:/texlive/2020/texmf-dist/fonts/type1/public/cm-super/sfbx
-1200.pfb><d:/texlive/2020/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb><
-d:/texlive/2020/texmf-dist/fonts/type1/public/cm-super/sfrm0900.pfb><d:/texlive
-/2020/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb><d:/texlive/2020/texm
-f-dist/fonts/type1/public/cm-super/sfrm1200.pfb><d:/texlive/2020/texmf-dist/fon
-ts/type1/public/cm-super/sfrm1728.pfb><d:/texlive/2020/texmf-dist/fonts/type1/p
-ublic/cm-super/sfrm2488.pfb>
-Output written on proj.pdf (3 pages, 172645 bytes).
+ 31i,15n,30p,284b,460s stack positions out of 5000i,500n,10000p,200000b,80000s
+{c:/texlive/2020/texmf-dist/fonts/enc/dvips/cm-super/cm-s
+uper-t1.enc}<c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.p
+fb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb><c:/tex
+live/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><c:/texlive/2020/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2020/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmr6.pfb><c:/texlive/2020/texmf-dist/fonts/type
+1/public/amsfonts/cm/cmr7.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/am
+sfonts/cm/cmsy10.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm
+/cmsy6.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb
+><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb><c:
+/texlive/2020/texmf-dist/fonts/type1/public/cm-super/sfbx0700.pfb><c:/texlive/2
+020/texmf-dist/fonts/type1/public/cm-super/sfbx0900.pfb><c:/texlive/2020/texmf-
+dist/fonts/type1/public/cm-super/sfbx1000.pfb><c:/texlive/2020/texmf-dist/fonts
+/type1/public/cm-super/sfbx1200.pfb><c:/texlive/2020/texmf-dist/fonts/type1/pub
+lic/cm-super/sfbx1440.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/cm-sup
+er/sfrm0900.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/cm-super/sfrm100
+0.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb><c:/
+texlive/2020/texmf-dist/fonts/type1/public/cm-super/sfrm1728.pfb><c:/texlive/20
+20/texmf-dist/fonts/type1/public/cm-super/sfrm2488.pfb>
+Output written on proj.pdf (4 pages, 243590 bytes).
 PDF statistics:
- 75 PDF objects out of 1000 (max. 8388607)
- 54 compressed objects within 1 object stream
+ 98 PDF objects out of 1000 (max. 8388607)
+ 71 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

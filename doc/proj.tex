@@ -43,7 +43,59 @@ Poniższe sprawozdanie jest wynikiem naszej pracy na drugim etapie projektu zesp
 
 \section{Eliminacja Gaussa w pierścieniu \(\mathbb{Z}_{p-1}\)}
 	\subsection{Algorytm Euklidesa}
+		Poniższy algorytm wykorzystuje algorytm Euklidesa do sprawdzenia, czy podane na wejściu dwie liczby są względnie pierwsze. \\
+	\begin{algorithm}[H]
+
+		\caption{Algorytm Euklidesa}
+		\KwIn{$a, b$ - liczby naturalne}
+		\KwOut{True, jeśli $\gcd(a,b) == 1$, False w przeciwnym przypadku.}
+		\BlankLine
+		\While{$b \neq 0$}{
+			$temp := b$ \\
+			$b := a$ mod $  b$ \\
+			$a := temp$} 
+		\If{$a == 1$}{$output := True$ }
+		\Else{$output := False$}
+		
+		\KwResult{output}
+	\end{algorithm}
 
 	\subsection{Rozszerzony algorytm Euklidesa}
+	
+	Tożsamość Bezout mówi, że liczby $a$ i $p$ są względnie pierwsze i wtedy i tylko wtedy, gdy istnieją takie liczby $s$ i $t$, że
+	
+	\begin{center}
+		$ps + at = 1$,
+	\end{center}
+	Wówczas po zredukowaniu tej równości modulo $p$ otrzymujemy
+	\begin{center}
+		$at \equiv 1$ mod $p$,
+	\end{center}
+	 czyli $t$ jest elementem odwrotnym $a$ w pierścieniu $Z_{p}$. \\
+	
+	Poniższy algorytm odnajduje element odwrotny do elementu $a$ w pierścieniu $Z_{p}$. \\
+	
+	\begin{algorithm}[H]
+		\caption{Rozszerzony Algorytm Euklidesa}
+		\KwIn{$a, p$ - liczby naturalne}
+		\KwOut{$x = a^{-1}$ mod $p$ lub informacja, że taka liczba nie istnieje}
+		\BlankLine
+		$u \leftarrow 1, w \leftarrow a, x \leftarrow 0, \leftarrow p$ \\
+		\While{$w \neq 0$}{
+			\If{$w < z$}{
+				$swap(u, x)$ \\
+				$swap(w, z)$
+			}
+			$q \leftarrow w / z - (w\%z)$ \\
+			$u \leftarrow u - q \cdot x$
+			$w \leftarrow w - q \cdot z$
+				
+		}
+		\If{$z \neq 1$}{\textbf{Result} None}
+		\If{$ x < 0$}{$x \leftarrow x + p$}
+		
+		
+		\KwResult{x}	
+	\end{algorithm}
 	
 \end{document}
