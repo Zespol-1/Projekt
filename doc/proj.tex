@@ -46,7 +46,7 @@ Poniższe sprawozdanie jest wynikiem naszej pracy na drugim etapie projektu zesp
 	
 	\begin{algorithm}
 		\SetAlgoLined
-		\caption{Mnożenie pośrednie, \textit{halfMult}}
+		\caption{Mnożenie pośrednie, \texttt{halfMult}}
 		\label{half_mult}
 		\KwIn{\(a,b\) - dwie liczby całkowite, \(p\) - modulnik}
 		\KwOut{\(result\) - wynik mnożenia}
@@ -63,7 +63,7 @@ Poniższe sprawozdanie jest wynikiem naszej pracy na drugim etapie projektu zesp
 	
 	\begin{algorithm}
 		\SetAlgoLined
-		\caption{Pełne mnożenie modularne dwóch liczb}
+		\caption{Pełne mnożenie modularne dwóch liczb, \texttt{mult}}
 		\label{mult}
 		\KwIn{\(a,b\) - dwie liczby całkowite, \(p\) - modulnik}
 		\KwOut{\(result\) - wynik mnożenia}
@@ -80,6 +80,31 @@ Poniższe sprawozdanie jest wynikiem naszej pracy na drugim etapie projektu zesp
 	
 \section{Poszukiwanie relacji i faktoryzacja w bazie}
 	\subsection{Szybkie potęgowanie modularne}
+	Metoda indeksu wymaga obliczenia wartości typu $a^{b}\;{mod}\;n$.
+	Szybkie potęgowanie modularne jest prostym algorytmem pozwalającym zredukować liczbę mnożeń i dzieleń modulo z $b$ do \textit{O(log b)}.
+	
+	\begin{algorithm}[H]
+		\caption{Szybkie potęgowanie modularne,  \texttt{fastPow}} 
+		\label{szybkie_pot} 
+		\SetKwInOut{Input}{Input}\SetKwInOut{Output}{Output}
+		\Input{podstawa potęgi $a$, wykładnik potęgi $b$, modulnik $n$}
+		\Output{$a^{b}\;mod\;n$}
+		\BlankLine
+		$bits \gets to\_bin(b)$\\
+		$nbits \gets length(bits)$\\
+		$a \gets a\%n$\\
+		$result \gets 1$\\
+		$x \gets a$\\
+		\For{i \(\gets\) 0 \textbf{to} nbits}{
+			\If{bits[i]==1}{
+				$result \gets result*x$\\
+				$result \gets result\%n$\\
+			}
+			$x \gets x*x$\\
+			$x \gets x\%n$\\
+		}
+		\Return{$result$}
+	\end{algorithm}
 	
 	\subsection{Fakoryzacja w bazie}
 	
