@@ -236,7 +236,7 @@ Poniższe sprawozdanie jest wynikiem pracy na drugim etapie projektu zespołoweg
 			\Return{x}	
 		\end{algorithm}
 	\section{Eliminacja Gaussa}
-		Przyjmijmy, że 
+		Niech 
 		\newline
 		\(\mathbb{A}_{l,k} = 
 		\begin{bmatrix}
@@ -244,9 +244,9 @@ Poniższe sprawozdanie jest wynikiem pracy na drugim etapie projektu zespołoweg
 			a_{1,0} & a_{1,1} & \cdots & a_{1,k} \\
 			\vdots & \vdots & & \vdots \\
 			a_{l,0} & a_{l,1} & \cdots & a_{l,k} 
-		\end{bmatrix} \), 
+		\end{bmatrix} \). 
 		\newline
-		jako \(\mathbb{A}_i = [a_{i,0}, a_{i,1}, \dots, a_{i,k}]\) oznaczamy \(i\)-wiersz macierzy. Wtedy, następujący zapis \(\mathbb{C} = \mathbb{A}_n - \mathbb{A}_m\), gdzie \(\mathbb{C} = [c_0, c_1, \dots, c_k]\) oznacza jednoczesne wykonanie działania \(c_j = \mathbb{A}_{n,j} - \mathbb{A}_{m,j}\) dla każdego elementu wiersza z wykorzystaniem procesora graficznego. Natomiast \(\mathbb{C} = mult(\mathbb{A}_m, b)\) rozumiemy jako jednoczesne wykonanie \(mult(a_{m,j}, b)\). 
+		Jako \(\mathbb{A}_i = [a_{i,0}, a_{i,1}, \dots, a_{i,k}]\) rozumiany jest \(i\)-wiersz macierzy. Wtedy, następujący zapis \(\mathbb{C} = \mathbb{A}_n - \mathbb{A}_m\), gdzie \(\mathbb{C} = [c_0, c_1, \dots, c_k]\) oznacza jednoczesne wykonanie działania \(c_j = \mathbb{A}_{n,j} - \mathbb{A}_{m,j}\) dla każdego elementu wiersza z wykorzystaniem procesora graficznego. Natomiast \(\mathbb{C} = mult(\mathbb{A}_m, b)\) rozumiany jest jako jednoczesne wykonanie \(mult(a_{m,j}, b)\). 
 		
 		\begin{algorithm}[H]
 			\SetAlgoLined
