@@ -106,9 +106,83 @@ Poniższe sprawozdanie jest wynikiem naszej pracy na drugim etapie projektu zesp
 		\Return{$result$}
 	\end{algorithm}
 	
-	\subsection{Fakoryzacja w bazie}
+	\subsection{Faktoryzacja w bazie}
+		Mamy bazę \(\mathcal{N} = \{2, 3, \dots p_k\}\), gdzie \(p_i \in \mathcal{P}\) i \(p_k\) jest największą liczbą pierwszą mniejszą \(B\). 
+		W celu faktoryzacji wykorzystamy algorytm \ref{factor}.
+		\begin{algorithm}
+			\SetAlgoLined
+			\caption{Faktoryzacja w bazie, \texttt{factor}}
+			\label{factor}
+			\KwIn{\(a\) - faktoryzowana liczba, \(\mathcal{N}\) - baza rozkładu}
+			\KwOut{\(result = [e_1, e_2, \dots, e_k]\) - czynniki}
+			\For{\(i \gets 0\) \textbf{to} \(k\)}
+			{
+				\(counter \gets 0\) \\
+				\While{\(a \% N[i]\)}
+				{
+					\(a \gets \frac{a}{N[i]}\) \\
+					\(counter \gets counter + 1\) \\
+				}
+				\(result[i] \gets counter\) \\
+			}
+			\Return{\(result\)}
+		\end{algorithm}
 	
+		\begin{algorithm}
+			\SetAlgoLined
+			\caption{Sprawdzenie czy liczba faktoryzuje się w wybranej bazie, \texttt{IsFactor}}
+			\label{factor_alt}
+			\KwIn{\(a\) - faktoryzowana liczba, \(\mathcal{N}\) - baza rozkładu}
+			\KwOut{\(result = [e_1, e_2, \dots, e_k]\) - czynniki}
+			\For{\(i \gets 0\) \textbf{to} \(k\)}
+			{
+				\(counter \gets 0\) \\
+				\While{\(a \% N[i]\)}
+				{
+					\(a \gets \frac{a}{N[i]}\) \\
+					\(counter \gets counter + 1\) \\
+				}
+				\(result[i] \gets counter\) \\
+			}
+			\If{\(a == 1\)}
+			{
+				\Return{\(True\)}
+			}
+			\Else
+			{
+				\Return{\(False\)}
+			}
+			
+			
+		\end{algorithm}
+		
 	\subsection{Budowa relacji}
+		W celu zbudowania relacji \(\mathcal{R}\) generujemy \(l\) liczb losowych \(e_i\). A następnie wykorzystując algorytm \ref{szybkie_pot} wyznaczamy wartości \(a^{e_i}\). 
+		\newline
+		Niech \(e\) będzie tablicą \(l\)- elementową, jako \(fastPow(a, e, p)\) rozumiemy jednoczesne wykonanie \(fastPow(a, e_i, p)\) dla każdego elementu tablicy z wykorzystaniem karty graficznej. 
+		\begin{algorithm}
+			\SetAlgoLined
+			\caption{Budowa relacji, \texttt{relationBuild}}
+			\label{relation}
+			\KwIn{\(a\) - generator, \(l\) - wielkość zbioru relacji, \(p\) - modulnik}
+			\KwOut{\(R\) - zbiór relacji}
+			\For{\(i \gets 0\) \textbf{to} \(l\)}
+			{
+				\(e[i] \gets randomInt()\)
+			}
+			\(R \gets fastPow(a, e, p)\) \\
+			\For{\(i \gets 0\) \textbf{to} \(l\)}
+			{
+				\While{ \textbf{not} \(isFactored(R[i])\)}
+				{
+					\(R[i] \gets fastPow(a, randomInt(), p)\)
+				}
+			}
+		
+			\Return{\(R\)}
+		\end{algorithm}
+
+
 
 \section{Eliminacja Gaussa w pierścieniu \(\mathbb{Z}_{p-1}\)}
 	\subsection{Algorytm Euklidesa}
