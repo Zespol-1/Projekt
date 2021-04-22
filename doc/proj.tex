@@ -260,10 +260,10 @@ Poniższe sprawozdanie jest wynikiem pracy na drugim etapie projektu zespołoweg
 				{
 					\If{\(i \neq j\)}
 					{
-						\If{\(isInversible(a_{j,j})\)}
+						\If{\(isInversible(a_{j,j}, p-1)\)}
 						{
-							\(b \gets mult(a_{i,j}, inverse(a_{j,j}, p-1))\) \\
-							\(tmp \gets mult(\mathbb{A}_i, b)\) \\
+							\(b \gets mult(a_{i,j}, inverse(a_{j,j}, p-1), p-1)\) \\
+							\(tmp \gets mult(\mathbb{A}_i, b, p-1)\) \\
 							\(\mathbb{A}_i \gets \mathbb{A}_i - tmp\)
 						}
 						\Else
@@ -276,10 +276,10 @@ Poniższe sprawozdanie jest wynikiem pracy na drugim etapie projektu zespołoweg
 			}
 			\For{\(i \gets 0\) \textbf{to} \(k\)}
 			{
-				\If{\(isInversible(a_{i,i})\)}
+				\If{\(isInversible(a_{i,i}, p-1)\)}
 				{
-					\(b \gets inverse(a_{i,i}, p)\) \\
-					\(\mathbb{A}_i \gets mult(\mathbb{A}_i, b)\) \\
+					\(b \gets inverse(a_{i,i}, p-1)\) \\
+					\(\mathbb{A}_i \gets mult(\mathbb{A}_i, b, p-1)\) \\
 				}
 				\Else
 				{
