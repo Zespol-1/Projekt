@@ -36,6 +36,32 @@ Poniższe sprawozdanie jest wynikiem naszej pracy na drugim etapie projektu zesp
 	
 \section{Poszukiwanie relacji i faktoryzacja w bazie}
 	\subsection{Szybkie potęgowanie modularne}
+	Metoda indeksu wymaga obliczenia wartości typu $a^{b}\;{mod}\;n$.
+	Szybkie potęgowanie modularne jest prostym algorytmem pozwalającym zredukować liczbę mnożeń i dzieleń modulo z $b$ do \textit{O(log b)}.
+	
+	\begin{algorithm}[H]
+		\caption{\texttt{szybkie potęgowanie}} \label{szybkie_pot} 
+		\SetKwInOut{Input}{Input}\SetKwInOut{Output}{Output}
+		
+		\Input{podstawa potęgi $a$, wykładnik potęgi $b$, modulnik $n$}
+		\Output{$a^{b}\;mod\;n$}
+		\BlankLine
+		$bits=to\_bin(b)$\\
+		$nbits=length(bits)$\\
+		$a=a\%n$\\
+		$result=1$\\
+		$x=a$\\
+		
+		\For{i=0 to nbits}{
+			\If{bits[i]==1}{
+				$result=result*x$\\
+				$result=result\%n$\\
+			}
+			$x=x*x$\\
+			$x=x\%n$\\
+		}
+		\Return{$result$}
+	\end{algorithm}
 	
 	\subsection{Fakoryzacja w bazie}
 	
