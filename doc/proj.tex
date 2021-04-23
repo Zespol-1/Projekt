@@ -4,6 +4,7 @@
 \usepackage{amsmath} 
 \usepackage{graphicx}
 \usepackage{float}
+\usepackage{longtable}
 \usepackage[polish]{babel} % English language/hyphenation
 \usepackage[linesnumbered,lined,boxed,commentsnumbered,ruled,vlined]{algorithm2e}
 
@@ -29,6 +30,24 @@ Poniższe sprawozdanie jest wynikiem pracy na drugim etapie projektu zespołoweg
 \end{abstract}
 
 \tableofcontents
+\clearpage
+\section{Oznaczenia} ~
+
+
+\begin{longtable}{|p{.2\textwidth}|l|}
+	\caption{Oznaczenia funkcji i operatorów. \textit{Źródło: opracowanie własne}}
+	\label{oznaczenia}
+	\\\hline
+	\textbf{Symbol}   & 	\textbf{Opis} \\ \hline
+	$>>$& przesunięcie bitowe\\ \hline
+	$\&\&$     & koniunkcja bitowa\\ \hline
+	$\%$  & reszta z dzielenia \\ \hline
+	\texttt{to\_bin()}  & zwraca postać binarną argumentu \\ \hline
+	\texttt{length()}  & zwraca długość argumentu \\ \hline
+	\texttt{randomInt()} & zwraca losową liczbę całkowitą \\ \hline
+	\texttt{swap(a,b)} & zmiennej a przypisuje wartość zmiennej b i odwrotnie\\ \hline
+	
+\end{longtable}
 \newpage
 
 \section{Mnożenie modularne dużych liczb}
@@ -130,7 +149,7 @@ Poniższe sprawozdanie jest wynikiem pracy na drugim etapie projektu zespołoweg
 	
 		\begin{algorithm}[H]
 			\SetAlgoLined
-			\caption{Sprawdzenie czy liczba faktoryzuje się w wybranej bazie, \texttt{IsFactor}}
+			\caption{Sprawdzenie czy liczba faktoryzuje się w wybranej bazie, \texttt{IsFactored}}
 			\label{factor_alt}
 			\KwIn{\(a\) - faktoryzowana liczba, \(\mathcal{N}\) - baza rozkładu}
 			\KwOut{\(result = [e_1, e_2, \dots, e_k]\) - czynniki}

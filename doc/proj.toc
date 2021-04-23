@@ -1,10 +1,11 @@
 \babel@toc {polish}{}
-\contentsline {section}{\numberline {1}Mnożenie modularne dużych liczb}{3}%
-\contentsline {section}{\numberline {2}Poszukiwanie relacji i faktoryzacja w bazie}{4}%
-\contentsline {subsection}{\numberline {2.1}Szybkie potęgowanie modularne}{4}%
-\contentsline {subsection}{\numberline {2.2}Faktoryzacja w bazie}{4}%
-\contentsline {subsection}{\numberline {2.3}Budowa relacji}{5}%
-\contentsline {section}{\numberline {3}Eliminacja Gaussa w pierścieniu \(\mathbb {Z}_{p-1}\)}{6}%
-\contentsline {subsection}{\numberline {3.1}Algorytm Euklidesa}{6}%
-\contentsline {subsection}{\numberline {3.2}Rozszerzony algorytm Euklidesa}{6}%
-\contentsline {section}{\numberline {4}Eliminacja Gaussa}{7}%
+\contentsline {section}{\numberline {1}Oznaczenia}{3}%
+\contentsline {section}{\numberline {2}Mnożenie modularne dużych liczb}{4}%
+\contentsline {section}{\numberline {3}Poszukiwanie relacji i faktoryzacja w bazie}{5}%
+\contentsline {subsection}{\numberline {3.1}Szybkie potęgowanie modularne}{5}%
+\contentsline {subsection}{\numberline {3.2}Faktoryzacja w bazie}{5}%
+\contentsline {subsection}{\numberline {3.3}Budowa relacji}{6}%
+\contentsline {section}{\numberline {4}Eliminacja Gaussa w pierścieniu \(\mathbb {Z}_{p-1}\)}{7}%
+\contentsline {subsection}{\numberline {4.1}Algorytm Euklidesa}{7}%
+\contentsline {subsection}{\numberline {4.2}Rozszerzony algorytm Euklidesa}{7}%
+\contentsline {section}{\numberline {5}Eliminacja Gaussa}{8}%
