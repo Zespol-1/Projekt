@@ -8,6 +8,8 @@
 \usepackage[polish]{babel} % English language/hyphenation
 \usepackage[linesnumbered,lined,boxed,commentsnumbered,ruled,vlined]{algorithm2e}
 
+\graphicspath{ {img/} }
+
 %opening
 \title{Projekt Zespołowy \\
 	\Huge Etap projektu – projektowanie rozwiązania na zadaną architekturę}
@@ -77,6 +79,7 @@ Poniższe sprawozdanie jest wynikiem pracy na drugim etapie projektu zespołoweg
 		\(half_d \gets (y_1 y_2) \%p\) \\
 		\Return{\((half_a + half_b + half_c + half_d) \% p\)}
 	\end{algorithm}
+
 	
 	\begin{algorithm}[H]
 		\SetAlgoLined
@@ -123,6 +126,12 @@ Poniższe sprawozdanie jest wynikiem pracy na drugim etapie projektu zespołoweg
 		}
 		\Return{$result$}
 	\end{algorithm}
+
+	\begin{figure}[H]
+		\begin{center}
+			\includegraphics[width=4.5cm]{alg 3.png} \caption{Schemat blokowy algorytmu \ref{szybkie_pot}}
+		\end{center}
+	\end{figure}
 	
 	\subsection{Faktoryzacja w bazie}
 		Dana jest baza \(\mathcal{N} = \{2, 3, \dots p_k\}\), gdzie \(p_i \in \mathcal{P}\) i \(p_k\) jest największą liczbą pierwszą mniejszą \(B\). 
@@ -146,6 +155,12 @@ Poniższe sprawozdanie jest wynikiem pracy na drugim etapie projektu zespołoweg
 			}
 			\Return{\(result\)}
 		\end{algorithm}
+	
+		\begin{figure}[H]
+			\begin{center}
+				\includegraphics[width=4.5cm]{alg 4.png} \caption{Schemat blokowy algorytmu \ref{factor}}
+			\end{center}
+		\end{figure}
 	
 		\begin{algorithm}[H]
 			\SetAlgoLined
@@ -202,6 +217,11 @@ Poniższe sprawozdanie jest wynikiem pracy na drugim etapie projektu zespołoweg
 			\Return{\(R\)}
 		\end{algorithm}
 
+	\begin{figure}[H]
+		\begin{center}
+			\includegraphics[width=8cm]{alg 6.png} \caption{Schemat blokowy algorytmu \ref{relation}}
+		\end{center}
+	\end{figure}
 
 \newpage
 \section{Eliminacja Gaussa w pierścieniu \(\mathbb{Z}_{p-1}\)}
@@ -221,6 +241,12 @@ Poniższe sprawozdanie jest wynikiem pracy na drugim etapie projektu zespołoweg
 		\Else{\Return{\(False\)}}
 		
 	\end{algorithm}
+
+	\begin{figure}[H]
+		\begin{center}
+			\includegraphics[width=6cm]{alg 7.png} \caption{Schemat blokowy algorytmu \ref{Euklid}}
+		\end{center}
+	\end{figure}
 
 	\subsection{Rozszerzony algorytm Euklidesa}
 		Tożsamość Bezout mówi, że liczby $a$ i $p$ są względnie pierwsze i wtedy i tylko wtedy, gdy istnieją takie liczby $s$ i $t$, że
@@ -254,6 +280,14 @@ Poniższe sprawozdanie jest wynikiem pracy na drugim etapie projektu zespołoweg
 			\If{$ x < 0$}{\(x \gets x + p\)}
 			\Return{x}	
 		\end{algorithm}
+	
+	\begin{figure}[H]
+		\begin{center}
+			\includegraphics[width=6cm]{alg 8.png} \caption{Schemat blokowy algorytmu \ref{extEuklid}}
+		\end{center}
+	\end{figure}
+
+
 	\section{Eliminacja Gaussa}
 		Niech 
 		\newline
@@ -311,6 +345,12 @@ Poniższe sprawozdanie jest wynikiem pracy na drugim etapie projektu zespołoweg
 			\Return{\(\mathbb{A}_k\)}	
 		\end{algorithm}
 			
+	\begin{figure}[H]
+		\begin{center}
+		\includegraphics[width = 10cm]{alg9.png} \caption{Schemat blokowy algorytmu \ref{Gauss}}
+		\end{center}
+	\end{figure}
+
 	
 	
 \end{document}

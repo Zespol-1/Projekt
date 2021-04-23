@@ -3,9 +3,9 @@
 \contentsline {section}{\numberline {2}Mnożenie modularne dużych liczb}{4}%
 \contentsline {section}{\numberline {3}Poszukiwanie relacji i faktoryzacja w bazie}{5}%
 \contentsline {subsection}{\numberline {3.1}Szybkie potęgowanie modularne}{5}%
-\contentsline {subsection}{\numberline {3.2}Faktoryzacja w bazie}{5}%
-\contentsline {subsection}{\numberline {3.3}Budowa relacji}{6}%
-\contentsline {section}{\numberline {4}Eliminacja Gaussa w pierścieniu \(\mathbb {Z}_{p-1}\)}{7}%
-\contentsline {subsection}{\numberline {4.1}Algorytm Euklidesa}{7}%
-\contentsline {subsection}{\numberline {4.2}Rozszerzony algorytm Euklidesa}{7}%
-\contentsline {section}{\numberline {5}Eliminacja Gaussa}{8}%
+\contentsline {subsection}{\numberline {3.2}Faktoryzacja w bazie}{7}%
+\contentsline {subsection}{\numberline {3.3}Budowa relacji}{8}%
+\contentsline {section}{\numberline {4}Eliminacja Gaussa w pierścieniu \(\mathbb {Z}_{p-1}\)}{10}%
+\contentsline {subsection}{\numberline {4.1}Algorytm Euklidesa}{10}%
+\contentsline {subsection}{\numberline {4.2}Rozszerzony algorytm Euklidesa}{11}%
+\contentsline {section}{\numberline {5}Eliminacja Gaussa}{13}%
