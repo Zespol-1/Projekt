@@ -240,7 +240,7 @@ Poniższe sprawozdanie jest wynikiem pracy na drugim etapie projektu zespołoweg
 			\KwIn{$a, p$ - liczby naturalne}
 			\KwOut{$x = a^{-1}$ mod $p$ lub informacja, że taka liczba nie istnieje}
 			\BlankLine
-			$u \leftarrow 1, w \leftarrow a, x \leftarrow 0, \leftarrow p$ \\
+			$u \leftarrow 1, w \leftarrow a, x \leftarrow 0,z \leftarrow p$ \\
 			\While{$w \neq 0$}{
 				\If{$w < z$}{
 					$swap(u, x)$ \\
@@ -257,14 +257,17 @@ Poniższe sprawozdanie jest wynikiem pracy na drugim etapie projektu zespołoweg
 	\section{Eliminacja Gaussa}
 		Niech 
 		\newline
-		\(\mathbb{A}_{l,k} = 
-		\begin{bmatrix}
-			a_{0,0} & a_{0,1} & \cdots & a_{0,k} \\
-			a_{1,0} & a_{1,1} & \cdots & a_{1,k} \\
-			\vdots & \vdots & & \vdots \\
-			a_{l,0} & a_{l,1} & \cdots & a_{l,k} 
-		\end{bmatrix} \). 
-		\newline
+		\begin{center}
+			\(\mathbb{A}_{l,k} = 
+			\begin{bmatrix}
+				a_{0,0} & a_{0,1} & \cdots & a_{0,k} \\
+				a_{1,0} & a_{1,1} & \cdots & a_{1,k} \\
+				\vdots & \vdots & & \vdots \\
+				a_{l,0} & a_{l,1} & \cdots & a_{l,k} 
+			\end{bmatrix} \). 
+		\end{center}
+
+
 		Jako \(\mathbb{A}_i = [a_{i,0}, a_{i,1}, \dots, a_{i,k}]\) rozumiany jest \(i\)-wiersz macierzy. Wtedy, następujący zapis \(\mathbb{C} = \mathbb{A}_n - \mathbb{A}_m\), gdzie \(\mathbb{C} = [c_0, c_1, \dots, c_k]\) oznacza jednoczesne wykonanie działania \(c_j = \mathbb{A}_{n,j} - \mathbb{A}_{m,j}\) dla każdego elementu wiersza z wykorzystaniem procesora graficznego. Natomiast \(\mathbb{C} = mult(\mathbb{A}_m, b)\) rozumiany jest jako jednoczesne wykonanie \(mult(a_{m,j}, b)\). 
 		
 		\begin{algorithm}[H]
