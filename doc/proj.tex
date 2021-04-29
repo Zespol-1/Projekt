@@ -308,49 +308,45 @@ Poniższe sprawozdanie jest wynikiem pracy na drugim etapie projektu zespołoweg
 		\end{center}
 
 
-		Jako \(\mathbb{A}_i = [a_{i,0}, a_{i,1}, \dots, a_{i,k}]\) rozumiany jest \(i\)-wiersz macierzy. Wtedy, następujący zapis \(\mathbb{C} = \mathbb{A}_n - \mathbb{A}_m\), gdzie \(\mathbb{C} = [c_0, c_1, \dots, c_k]\) oznacza jednoczesne wykonanie działania \(c_j = \mathbb{A}_{n,j} - \mathbb{A}_{m,j}\) dla każdego elementu wiersza z wykorzystaniem procesora graficznego. Natomiast \(\mathbb{C} = mult(\mathbb{A}_m, b)\) rozumiany jest jako jednoczesne wykonanie \(mult(a_{m,j}, b)\). 
-		
+		Jako \(\mathbb{A}_i = [a_{i,0}, a_{i,1}, \dots, a_{i,k}]\) rozumiany jest \(i\)-wiersz macierzy. Wtedy, następujący zapis \(\mathbb{C} = \mathbb{A}_n - \mathbb{A}_m\), gdzie \(\mathbb{C} = [c_0, c_1, \dots, c_k]\) oznacza jednoczesne wykonanie działania \(c_j = \mathbb{A}_{n,j} - \mathbb{A}_{m,j}\) dla każdego elementu wiersza z wykorzystaniem procesora graficznego. Natomiast \(\mathbb{C} = mult(\mathbb{A}_m, b)\) rozumiany jest jako jednoczesne wykonanie \(mult(a_{m,j}, b)\). Zapis \(\mathbb{A}_{l+1, k} \gets \frac{\mathbb{A}_{l, k}}{vector}\) oznacza dopisanie wiersza \(vector\) jako ostatni wiersz macierzy. 
+		\newline
 		\begin{algorithm}[H]
 			\SetAlgoLined
 			\label{Gauss}
 			\caption{Algorytm eliminacji Gaussa, \texttt{Gauss}}
 			\KwIn{\(\mathbb{A}_{l,k} = \mathbb{A}_{l-1,k} \| \mathbb{E}_{1,k}\)}
 			\KwOut{\(\mathbb{X}_{1,k}\)}
+			
 			\For{\(j \gets 0\) \textbf{to} \(l\)}
 			{
 				\For{\(i \gets 0\) \textbf{to} \(k\)}
 				{
 					\If{\(i \neq j\)}
 					{
-						\If{\(isInversible(a_{j,j}, p-1)\)}
+						\(inversibleIdx \gets inversibleIndex(i)\) \\
+						\While{\(inversibleIdx == -1 \text{ and } \text{\textbf{not }} isInversible(a_{j,j}) \)}
 						{
-							\(b \gets mult(a_{i,j}, inverse(a_{j,j}, p-1), p-1)\) \\
-							\(tmp \gets mult(\mathbb{A}_i, b, p-1)\) \\
-							\(\mathbb{A}_i \gets \mathbb{A}_i - tmp\)
+							\(\mathbb{A}_{l+1, k} \gets \frac{\mathbb{A}_{l, k}}{relationBuild(a, 1, p)} \)\\
+							\(l \gets l + 1\) \\
+							\(inversibleIdx \gets inversibleIndex(i)\) \\
+							\(swap(\mathbb{A}_i, \mathbb{A}_{inversibleIdx})\) \\
 						}
-						\Else
-						{
-							\(swap(\mathbb{A}_i, \mathbb{A}_{i+1})\) \\
-							\(i \gets i - 1\)
-						}
+						\(b \gets mult(a_{i,j}, inverse(a_{j,j}, p-1), p-1)\) \\
+						\(tmp \gets mult(\mathbb{A}_i, b, p-1)\) \\
+						\(\mathbb{A}_i \gets \mathbb{A}_i - tmp\) \\
 					}
 				}
 			}
 			\For{\(i \gets 0\) \textbf{to} \(k\)}
 			{
-				\If{\(isInversible(a_{i,i}, p-1)\)}
-				{
-					\(b \gets inverse(a_{i,i}, p-1)\) \\
-					\(\mathbb{A}_i \gets mult(\mathbb{A}_i, b, p-1)\) \\
-				}
-				\Else
-				{
-					\Return{\(None\)}
-				}
+				\(b \gets inverse(a_{i,i}, p-1)\) \\
+				\(\mathbb{A}_i \gets mult(\mathbb{A}_i, b, p-1)\) \\
 			}
-			\Return{\(\mathbb{A}_k\)}	
-		\end{algorithm}
+			\Return{\(\mathbb{A}_k\)}
 			
+		\end{algorithm}
+		
+				
 	\begin{figure}[H]
 		\begin{center}
 		\includegraphics[width = 10cm]{alg9.png} \caption{Schemat blokowy algorytmu \ref{Gauss}}
