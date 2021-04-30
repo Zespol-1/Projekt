@@ -53,7 +53,7 @@ Poniższe sprawozdanie jest wynikiem pracy na drugim etapie projektu zespołoweg
 \section{Oznaczenia} ~
 
 
-\begin{longtable}{|p{.2\textwidth}|l|}
+\begin{longtable}{|p{.3\textwidth}|l|}
 	\caption{Oznaczenia funkcji i operatorów. \textit{Źródło: opracowanie własne}}
 	\label{oznaczenia}
 	\\\hline
@@ -65,6 +65,7 @@ Poniższe sprawozdanie jest wynikiem pracy na drugim etapie projektu zespołoweg
 	\texttt{length()}  & zwraca długość argumentu \\ \hline
 	\texttt{randomInt()} & zwraca losową liczbę całkowitą \\ \hline
 	\texttt{swap(a,b)} & zmiennej a przypisuje wartość zmiennej b i odwrotnie\\ \hline
+	\texttt{inversibleIndex($A_i$)} & zwraca indeks elementu odwracalnego w danym wektorze \\ \hline
 	
 \end{longtable}
 \newpage
@@ -347,7 +348,7 @@ Poniższe sprawozdanie jest wynikiem pracy na drugim etapie projektu zespołoweg
 						{
 							\(\mathbb{A}_{l+1, k} \gets \frac{\mathbb{A}_{l, k}}{relationBuild(a, 1, p)} \)\\
 							\(l \gets l + 1\) \\
-							\(inversibleIdx \gets inversibleIndex(a_i)\) \\
+							\(inversibleIdx \gets inversibleIndex(A_i)\) \\
 							\(swap(\mathbb{A}_i, \mathbb{A}_{inversibleIdx})\) \\
 						}
 						\(b \gets mult(a_{i,j}, inverse(a_{j,j}, p-1), p-1)\) \\

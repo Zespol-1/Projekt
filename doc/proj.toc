@@ -1,24 +1,11 @@
 \babel@toc {polish}{}
-<<<<<<< HEAD
 \contentsline {section}{\numberline {1}Oznaczenia}{3}{section.1}%
 \contentsline {section}{\numberline {2}Mnożenie modularne dużych liczb}{4}{section.2}%
 \contentsline {section}{\numberline {3}Poszukiwanie relacji i faktoryzacja w bazie}{5}{section.3}%
 \contentsline {subsection}{\numberline {3.1}Szybkie potęgowanie modularne}{5}{subsection.3.1}%
 \contentsline {subsection}{\numberline {3.2}Faktoryzacja w bazie}{7}{subsection.3.2}%
-\contentsline {subsection}{\numberline {3.3}Budowa relacji}{9}{subsection.3.3}%
-\contentsline {section}{\numberline {4}Eliminacja Gaussa w pierścieniu \(\mathbb {Z}_{p-1}\)}{11}{section.4}%
-\contentsline {subsection}{\numberline {4.1}Algorytm Euklidesa}{11}{subsection.4.1}%
-\contentsline {subsection}{\numberline {4.2}Rozszerzony algorytm Euklidesa}{12}{subsection.4.2}%
-\contentsline {section}{\numberline {5}Eliminacja Gaussa}{14}{section.5}%
-=======
-\contentsline {section}{\numberline {1}Oznaczenia}{3}%
-\contentsline {section}{\numberline {2}Mnożenie modularne dużych liczb}{4}%
-\contentsline {section}{\numberline {3}Poszukiwanie relacji i faktoryzacja w bazie}{5}%
-\contentsline {subsection}{\numberline {3.1}Szybkie potęgowanie modularne}{5}%
-\contentsline {subsection}{\numberline {3.2}Faktoryzacja w bazie}{7}%
-\contentsline {subsection}{\numberline {3.3}Budowa relacji}{11}%
-\contentsline {section}{\numberline {4}Eliminacja Gaussa w pierścieniu \(\mathbb {Z}_{p-1}\)}{13}%
-\contentsline {subsection}{\numberline {4.1}Algorytm Euklidesa}{13}%
-\contentsline {subsection}{\numberline {4.2}Rozszerzony algorytm Euklidesa}{15}%
-\contentsline {section}{\numberline {5}Eliminacja Gaussa}{17}%
->>>>>>> 208006a72015896f9b7740808d8782d2627fbc0d
+\contentsline {subsection}{\numberline {3.3}Budowa relacji}{11}{subsection.3.3}%
+\contentsline {section}{\numberline {4}Eliminacja Gaussa w pierścieniu \(\mathbb {Z}_{p-1}\)}{13}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Algorytm Euklidesa}{13}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Rozszerzony algorytm Euklidesa}{15}{subsection.4.2}%
+\contentsline {section}{\numberline {5}Eliminacja Gaussa}{17}{section.5}%
