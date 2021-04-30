@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2020.11.10)  30 APR 2021 09:46
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2021.2.10)  30 APR 2021 09:58
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -307,80 +307,97 @@ Package pdftex.def Info: img/alg 3.png  used on input line 132.
 Overfull \vbox (23.28796pt too high) has occurred while \output is active []
 
 
-[6 <./img/alg 3.png>]
-<img/alg 4.png, id=44, 359.3425pt x 774.895pt>
+[6 <./img/alg 3.png>] [7]
+<img/alg 4.png, id=48, 359.3425pt x 774.895pt>
 File: img/alg 4.png Graphic file (type png)
 <use img/alg 4.png>
 Package pdftex.def Info: img/alg 4.png  used on input line 161.
-(pdftex.def)             Requested size: 128.0374pt x 276.11241pt.
-<img/alg 5.png, id=45, 519.9425pt x 774.895pt>
+(pdftex.def)             Requested size: 227.62204pt x 490.85864pt.
+<img/alg 5.png, id=49, 519.9425pt x 774.895pt>
 File: img/alg 5.png Graphic file (type png)
 <use img/alg 5.png>
 Package pdftex.def Info: img/alg 5.png  used on input line 194.
 (pdftex.def)             Requested size: 284.52756pt x 424.04161pt.
- [7 <./img/alg 4.png>] [8] [9 <./img/alg 5.png>]
-<img/alg 6.png, id=59, 560.0925pt x 509.905pt>
+ [8
+
+ <./img/alg 4.png>] [9] [10 <./img/alg 5.png>]
+[11
+
+]
+<img/alg 6.png, id=65, 560.0925pt x 509.905pt>
 File: img/alg 6.png Graphic file (type png)
 <use img/alg 6.png>
-Package pdftex.def Info: img/alg 6.png  used on input line 229.
-(pdftex.def)             Requested size: 227.62204pt x 207.2262pt.
- [10 <./img/alg 6.png>]
-<img/alg 7.png, id=64, 303.1325pt x 634.37pt>
+Package pdftex.def Info: img/alg 6.png  used on input line 230.
+(pdftex.def)             Requested size: 369.88582pt x 336.7562pt.
+
+Overfull \hbox (24.88582pt too wide) in paragraph at lines 230--230
+ [] 
+ []
+
+[12
+
+ <./img/alg 6.png>]
+<img/alg 7.png, id=70, 303.1325pt x 634.37pt>
 File: img/alg 7.png Graphic file (type png)
 <use img/alg 7.png>
-Package pdftex.def Info: img/alg 7.png  used on input line 254.
-(pdftex.def)             Requested size: 170.71652pt x 357.26782pt.
- [11]
-<img/alg 8.png, id=68, 449.68pt x 693.59125pt>
+Package pdftex.def Info: img/alg 7.png  used on input line 255.
+(pdftex.def)             Requested size: 227.62204pt x 476.3571pt.
+ [13] [14 <./img/alg 7.png>]
+<img/alg 8.png, id=79, 449.68pt x 693.59125pt>
 File: img/alg 8.png Graphic file (type png)
 <use img/alg 8.png>
-Package pdftex.def Info: img/alg 8.png  used on input line 293.
-(pdftex.def)             Requested size: 199.16928pt x 307.2025pt.
- [12 <./img/alg 7.png>] [13]
-Underfull \hbox (badness 10000) in paragraph at lines 299--301
+Package pdftex.def Info: img/alg 8.png  used on input line 294.
+(pdftex.def)             Requested size: 312.9803pt x 482.7589pt.
+ [15]
+Underfull \hbox (badness 10000) in paragraph at lines 300--302
 
  []
 
-<img/alg9.png, id=77, 679.53876pt x 1074.0125pt>
+[16 <./img/alg 8.png>]
+<img/alg9.png, id=87, 679.53876pt x 1074.0125pt>
 File: img/alg9.png Graphic file (type png)
 <use img/alg9.png>
-Package pdftex.def Info: img/alg9.png  used on input line 353.
-(pdftex.def)             Requested size: 284.52756pt x 449.68918pt.
-[14 <./img/alg 8.png>] [15] [16 <./img/alg9.png>] (./proj.aux) ) 
+Package pdftex.def Info: img/alg9.png  used on input line 354.
+(pdftex.def)             Requested size: 341.43306pt x 539.62703pt.
+ [17]
+Overfull \vbox (23.571pt too high) has occurred while \output is active []
+
+
+[18 <./img/alg9.png>] (./proj.aux) ) 
 Here is how much of TeX's memory you used:
  4041 strings out of 480608
- 55437 string characters out of 5907535
+ 55437 string characters out of 5907536
  321114 words of memory out of 5000000
  19861 multiletter control sequences out of 15000+600000
  554722 words of font info for 76 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  37i,21n,37p,642b,582s stack positions out of 5000i,500n,10000p,200000b,80000s
-{c:/texlive/202
-0/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}<c:/texlive/2020/texmf-di
-st/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2020/texmf-dist/fonts/
-type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2020/texmf-dist/fonts/type1/pub
-lic/amsfonts/cm/cmmi5.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfon
-ts/cm/cmmi7.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr1
-0.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><c:/t
-exlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/20
-20/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><c:/texlive/2020/texmf-d
-ist/fonts/type1/public/amsfonts/symbols/msbm10.pfb><c:/texlive/2020/texmf-dist/
-fonts/type1/public/amsfonts/symbols/msbm7.pfb><c:/texlive/2020/texmf-dist/fonts
-/type1/public/cm-super/sfbi1000.pfb><c:/texlive/2020/texmf-dist/fonts/type1/pub
-lic/cm-super/sfbx0700.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/cm-sup
-er/sfbx0900.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/cm-super/sfbx100
-0.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb><c:/
-texlive/2020/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb><c:/texlive/20
-20/texmf-dist/fonts/type1/public/cm-super/sfrm0900.pfb><c:/texlive/2020/texmf-d
-ist/fonts/type1/public/cm-super/sfrm1000.pfb><c:/texlive/2020/texmf-dist/fonts/
-type1/public/cm-super/sfrm1200.pfb><c:/texlive/2020/texmf-dist/fonts/type1/publ
-ic/cm-super/sfrm1728.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/cm-supe
-r/sfrm2488.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/cm-super/sfti1000
-.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/cm-super/sftt1000.pfb>
-Output written on proj.pdf (16 pages, 457072 bytes).
+{c:/texlive/2020/texmf-dist/fonts/enc/dvips
+/cm-super/cm-super-t1.enc}<c:/texlive/2020/texmf-dist/fonts/type1/public/amsfon
+ts/cm/cmex10.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmm
+i10.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb><c
+:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><c:/texlive/
+2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2020/texmf
+-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><c:/texlive/2020/texmf-dist/fonts
+/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2020/texmf-dist/fonts/type1/pu
+blic/amsfonts/cm/cmsy7.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfo
+nts/symbols/msbm10.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/
+symbols/msbm7.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/cm-super/sfbi1
+000.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/cm-super/sfbx0700.pfb><c
+:/texlive/2020/texmf-dist/fonts/type1/public/cm-super/sfbx0900.pfb><c:/texlive/
+2020/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb><c:/texlive/2020/texmf
+-dist/fonts/type1/public/cm-super/sfbx1200.pfb><c:/texlive/2020/texmf-dist/font
+s/type1/public/cm-super/sfbx1440.pfb><c:/texlive/2020/texmf-dist/fonts/type1/pu
+blic/cm-super/sfrm0900.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/cm-su
+per/sfrm1000.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/cm-super/sfrm12
+00.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/cm-super/sfrm1728.pfb><c:
+/texlive/2020/texmf-dist/fonts/type1/public/cm-super/sfrm2488.pfb><c:/texlive/2
+020/texmf-dist/fonts/type1/public/cm-super/sfti1000.pfb><c:/texlive/2020/texmf-
+dist/fonts/type1/public/cm-super/sftt1000.pfb>
+Output written on proj.pdf (18 pages, 457068 bytes).
 PDF statistics:
- 165 PDF objects out of 1000 (max. 8388607)
- 108 compressed objects within 2 object streams
+ 171 PDF objects out of 1000 (max. 8388607)
+ 112 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  36 words of extra memory for PDF output out of 10000 (max. 10000000)
 
