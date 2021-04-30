@@ -5,7 +5,7 @@
 \contentsline {subsection}{\numberline {3.1}Szybkie potęgowanie modularne}{5}%
 \contentsline {subsection}{\numberline {3.2}Faktoryzacja w bazie}{7}%
 \contentsline {subsection}{\numberline {3.3}Budowa relacji}{9}%
-\contentsline {section}{\numberline {4}Eliminacja Gaussa w pierścieniu \(\mathbb {Z}_{p-1}\)}{10}%
-\contentsline {subsection}{\numberline {4.1}Algorytm Euklidesa}{10}%
-\contentsline {subsection}{\numberline {4.2}Rozszerzony algorytm Euklidesa}{11}%
-\contentsline {section}{\numberline {5}Eliminacja Gaussa}{13}%
+\contentsline {section}{\numberline {4}Eliminacja Gaussa w pierścieniu \(\mathbb {Z}_{p-1}\)}{11}%
+\contentsline {subsection}{\numberline {4.1}Algorytm Euklidesa}{11}%
+\contentsline {subsection}{\numberline {4.2}Rozszerzony algorytm Euklidesa}{12}%
+\contentsline {section}{\numberline {5}Eliminacja Gaussa}{14}%
