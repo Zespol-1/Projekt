@@ -12,6 +12,7 @@
 
 #include <CL/cl.h>
 
+
 //
 
 // OpenCL source code
@@ -131,12 +132,90 @@ int InitialData2[20] = { 35,51,54,58,55,32,36,69,27,39,35,40,16,44,55,14,58,75,1
 
 #define SIZE 100
 
-// Main function
-// ************************************************************
+cl_platform_id get_cl_platfrom_id()
+{
+    cl_int error;
+    cl_platform_id cpPlatform;
+    error = clGetPlatformIDs(1, &cpPlatform, NULL);
+    if (error != CL_SUCCESS)
+    {
+        printf("Failed to get platform");
+    }
+    return cpPlatform;
+}
+
+cl_device_id get_cl_device_id(cl_platform_id cpPlatform)
+{
+    cl_int error;
+    cl_device_id cdDevice;
+    error = clGetDeviceIDs(cpPlatform, CL_DEVICE_TYPE_GPU, 1, &cdDevice, NULL);
+    if (error != CL_SUCCESS)
+    {
+        printf("Failed to get device \n");
+    }
+    return cdDevice;
+}
+
+void get_cl_device_info(cl_device_id cdDevice)
+{
+    char cBuffer[1024];
+    size_t size;
+    clGetDeviceInfo(cdDevice, CL_DEVICE_NAME, sizeof(cBuffer), &cBuffer, NULL);
+    printf("CL_DEVICE_NAME: %s\n", cBuffer);
+    clGetDeviceInfo(cdDevice, CL_DRIVER_VERSION, sizeof(cBuffer), &cBuffer, NULL);
+    printf("CL_DRIVER_VERSION: %s\n\n", cBuffer);
+    clGetDeviceInfo(cdDevice, CL_DEVICE_MAX_WORK_GROUP_SIZE, sizeof(size), &size, NULL);
+    printf("CL_DEVICE_MAX_WORK_GROUP_SIZE: %u\n\n", size);
+}
+
+cl_context get_cl_gpu_context(cl_platform_id cpPlatform)
+{
+    cl_int error;
+    cl_context_properties properties[] = { CL_CONTEXT_PLATFORM, (int)cpPlatform, 0 };
+    cl_context GPUContext = clCreateContextFromType(properties, CL_DEVICE_TYPE_ALL, &pfn_notify, NULL, &error);
+    if (error != CL_SUCCESS)
+    {
+        printf("Failed to create context: ");
+        error_int(error);
+    }
+    return GPUContext;
+}
+
+cl_mem get_writing_buffer(cl_context GPUContext, int *HostVector, int size)
+{
+    cl_mem GPUVector = clCreateBuffer(GPUContext, CL_MEM_READ_ONLY |
+        CL_MEM_COPY_HOST_PTR, sizeof(int) * size, HostVector, NULL);
+    return GPUVector;
+}
+
+cl_mem get_reading_buffer(cl_context GPUContext, int size)
+{
+    cl_mem GPUOutputVector = clCreateBuffer(GPUContext, CL_MEM_WRITE_ONLY,
+        sizeof(int) * size, NULL, NULL);
+    return GPUOutputVector;
+}
+
+cl_kernel get_cl_kernel(cl_context GPUContext, const char* source[], const char* name)
+{
+    cl_int error;
+    cl_program OpenCLProgram = clCreateProgramWithSource(GPUContext, 7, source, NULL, &error);
+    if (error != CL_SUCCESS)
+    {
+        printf("Failed to create program");
+    }
+    error = clBuildProgram(OpenCLProgram, 0, NULL, NULL, NULL, NULL);
+    if (error != CL_SUCCESS)
+    {
+        printf("Failed to build program");
+    }
+    cl_kernel OpenKernel = clCreateKernel(OpenCLProgram, name, NULL);
+    clReleaseProgram(OpenCLProgram);
+    return OpenKernel;
+}
 
 int main(int argc, char** argv)
-
 {
+    #pragma warning(disable : 4996)
     cl_int error;
     // Two integer source vectors in Host memory
     int HostVector1[SIZE], HostVector2[SIZE];
@@ -153,71 +232,31 @@ int main(int argc, char** argv)
 
     //Get an OpenCL platform
 
-    cl_platform_id cpPlatform;
-    error = clGetPlatformIDs(1, &cpPlatform, NULL);
-    if (error != CL_SUCCESS)
-    {
-        printf("Failed to get platform");
-        return -1;
-    }
+    cl_platform_id cpPlatform = get_cl_platfrom_id();
 
     // Get a GPU device
-    cl_device_id cdDevice;
-    error = clGetDeviceIDs(cpPlatform, CL_DEVICE_TYPE_GPU, 1, &cdDevice, NULL);
-    if (error != CL_SUCCESS)
-    {
-        printf("Failed to get device \n");
-        return -1;
-    }
+    cl_device_id cdDevice = get_cl_device_id(cpPlatform);
 
-    char cBuffer[1024];
-    clGetDeviceInfo(cdDevice, CL_DEVICE_NAME, sizeof(cBuffer), &cBuffer, NULL);
-    printf("CL_DEVICE_NAME: %s\n", cBuffer);
-    clGetDeviceInfo(cdDevice, CL_DRIVER_VERSION, sizeof(cBuffer), &cBuffer, NULL);
-    printf("CL_DRIVER_VERSION: %s\n\n", cBuffer);
+    get_cl_device_info(cdDevice);
 
     // Create a context to run OpenCL enabled GPU
-    cl_context_properties properties[] = { CL_CONTEXT_PLATFORM, (int)cpPlatform, 0 };
-    cl_context GPUContext = clCreateContextFromType(properties, CL_DEVICE_TYPE_ALL, &pfn_notify, NULL, &error);
-    if (error != CL_SUCCESS)
-    {
-        printf("Failed to create context: ");
-        error_int(error);
-        return -1;
-    }
+    cl_context GPUContext = get_cl_gpu_context(cpPlatform);
 
     // Create a command-queue on the GPU device
     cl_command_queue cqCommandQueue = clCreateCommandQueue(GPUContext, cdDevice, 0, NULL);
 
     // Allocate GPU memory for source vectors AND initialize from CPU memory
 
-    cl_mem GPUVector1 = clCreateBuffer(GPUContext, CL_MEM_READ_ONLY |
-        CL_MEM_COPY_HOST_PTR, sizeof(int) * SIZE, HostVector1, NULL);
+    cl_mem GPUVector1 = get_writing_buffer(GPUContext, HostVector1, 100);
 
-    cl_mem GPUVector2 = clCreateBuffer(GPUContext, CL_MEM_READ_ONLY |
-        CL_MEM_COPY_HOST_PTR, sizeof(int) * SIZE, HostVector2, NULL);
+    cl_mem GPUVector2 = get_writing_buffer(GPUContext, HostVector2, 100);
 
     // Allocate output memory on GPU
-    cl_mem GPUOutputVector = clCreateBuffer(GPUContext, CL_MEM_WRITE_ONLY,
-        sizeof(int) * SIZE, NULL, NULL);
+    cl_mem GPUOutputVector = get_reading_buffer(GPUContext, 100);
 
     // Create OpenCL program with source code
-    cl_program OpenCLProgram = clCreateProgramWithSource(GPUContext, 7, OpenCLSourceSub, NULL, &error);
-    if (error != CL_SUCCESS)
-    {
-        printf("Failed to create program");
-    }
-
-    // Build the program (OpenCL JIT compilation)
-    error = clBuildProgram(OpenCLProgram, 0, NULL, NULL, NULL, NULL);
-
-    if (error != CL_SUCCESS)
-    {
-        printf("Failed to build program");
-    }
-
-    // Create a handle to the compiled OpenCL function (Kernel)
-    cl_kernel OpenCLVectorAdd = clCreateKernel(OpenCLProgram, "VectorSub", NULL);
+  
+    cl_kernel OpenCLVectorAdd = get_cl_kernel(GPUContext, OpenCLSourceSub, "VectorSub");
 
     // In the next step we associate the GPU memory with the Kernel arguments
 
@@ -240,7 +279,6 @@ int main(int argc, char** argv)
 
     // Cleanup
     clReleaseKernel(OpenCLVectorAdd);
-    clReleaseProgram(OpenCLProgram);
     clReleaseCommandQueue(cqCommandQueue);
     clReleaseContext(GPUContext);
     clReleaseMemObject(GPUVector1);
@@ -249,7 +287,7 @@ int main(int argc, char** argv)
 
     for (int i = 0; i < SIZE; i++)
         printf("[%d - %d = %d]\n", HostVector1[i], HostVector2[i], HostOutputVector[i]);
-
+    
     return 0;
 
 }
