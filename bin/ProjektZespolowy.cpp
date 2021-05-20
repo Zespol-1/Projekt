@@ -168,6 +168,13 @@ void get_cl_device_info(cl_device_id cdDevice)
     printf("CL_DEVICE_MAX_WORK_GROUP_SIZE: %u\n\n", size);
 }
 
+size_t get_max_work_group_size(cl_device_id cdDevice)
+{
+    size_t size;
+    clGetDeviceInfo(cdDevice, CL_DEVICE_MAX_WORK_GROUP_SIZE, sizeof(size), &size, NULL);
+    return size;
+}
+
 cl_context get_cl_gpu_context(cl_platform_id cpPlatform)
 {
     cl_int error;
@@ -236,6 +243,7 @@ int main(int argc, char** argv)
 
     // Get a GPU device
     cl_device_id cdDevice = get_cl_device_id(cpPlatform);
+    size_t max_work_group_size = get_max_work_group_size(cdDevice);
 
     get_cl_device_info(cdDevice);
 
@@ -248,7 +256,6 @@ int main(int argc, char** argv)
     // Allocate GPU memory for source vectors AND initialize from CPU memory
 
     cl_mem GPUVector1 = get_writing_buffer(GPUContext, HostVector1, 100);
-
     cl_mem GPUVector2 = get_writing_buffer(GPUContext, HostVector2, 100);
 
     // Allocate output memory on GPU
