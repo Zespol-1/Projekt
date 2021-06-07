@@ -11,8 +11,8 @@
 using namespace std;
 #define MEM_SIZE (128)
 #define MAX_SOURCE_SIZE (0x100000)
-#define ncols 5
-
+#define ncols 6
+unsigned long long p = 9223372036854775783;
 
 void __stdcall pfn_notify(const char* errinfo, const void* private_info, size_t cb, void* user_data)
 {
@@ -64,7 +64,6 @@ void error_int(cl_int err)
 
 uint64_t product_mult32_reduce(uint64_t tbr) 
 {
-    unsigned long p = 9223372036854775783;
     tbr = tbr % p;
     uint64_t x1 = tbr >> 32;
     uint64_t y1 = tbr & 0xffffffff;
@@ -74,7 +73,6 @@ uint64_t product_mult32_reduce(uint64_t tbr)
 
 uint64_t product_mult64_reduce(uint64_t tbr) 
 {
-    unsigned long p = 9223372036854775783;
     tbr = tbr % p;
     uint64_t x1 = tbr >> 32;
     uint64_t y1 = tbr & 0xffffffff;
@@ -127,7 +125,6 @@ uint64_t mul_inv(uint64_t a, uint64_t b)
 
 unsigned long long mult(unsigned long long a, unsigned long long b) 
 {
-    unsigned long p = 9223372036854775783;
     unsigned long long x1 = a;
     x1 = x1 >> 32;
     unsigned long long y1;
@@ -249,13 +246,13 @@ int main(int argc, char** argv)
         return -1;
     }
 
-    unsigned long long row1[5] = { 1, 2, 3, 4, 5 };
-    unsigned long long row2[5] = { 4, 5, 6, 7, 2 };
-    unsigned long long row3[5] = { 5, 7, 9, 8, 3 };
-    unsigned long long row4[5] = { 6, 7, 10, 8, 4 };
-    unsigned long long row5[5] = { 7, 7, 10, 8, 1 };
-    unsigned long long tmp[5];
-    unsigned long p = 9223372036854775783;
+    unsigned long long row1[6] = { 1, 2, 3, 4, 5, 6 };
+    unsigned long long row2[6] = { 4, 5, 7, 7, 2, 8 };
+    unsigned long long row3[6] = { 5, 7, 9, 8, 3, 15 };
+    unsigned long long row4[6] = { 6, 21, 23, 8, 4, 13 };
+    unsigned long long row5[6] = { 7, 7, 10, 8, 1, 5 };
+    unsigned long long row6[6] = { 9, 4, 11, 7, 9, 4 };
+    unsigned long long tmp[6];
 
     vector <unsigned long long*> macierz;
     unsigned long long a[1];
@@ -264,6 +261,7 @@ int main(int argc, char** argv)
     macierz.push_back(row3);
     macierz.push_back(row4);
     macierz.push_back(row5);
+    //macierz.push_back(row6);
 
     size_t WorkSize[1] = { 1024 };
     cl_mem arg1 = clCreateBuffer(context, CL_MEM_READ_WRITE |
@@ -283,15 +281,50 @@ int main(int argc, char** argv)
         return -1;
     }
 
-    for (int j = 0; j < ncols; j++)
+    for (int j = 0; j < ncols-1; j++)
     {
+        a[0] = mul_inv(macierz[j][j], p);
+        if (a[0] == 0)
+        {
+            cout << "AAAAAAAAAAAAAAAAAAAAAA";
+        }
+        error = clEnqueueWriteBuffer(command_queue, arg1, CL_TRUE, 0, ncols * sizeof(unsigned long long), macierz[j], 0, NULL, NULL);
+        error = clEnqueueWriteBuffer(command_queue, arg2, CL_TRUE, 0, 1 * sizeof(unsigned long long), a, 0, NULL, NULL);
+        error = clSetKernelArg(kernelMult, 0, sizeof(cl_mem), (void*)&arg1);
+        if (error != CL_SUCCESS)
+        {
+            printf("Failed to set arg 1: ");
+            error_int(error);
+            return -1;
+        }
+        error = clSetKernelArg(kernelMult, 1, sizeof(cl_mem), (void*)&arg2);
+        if (error != CL_SUCCESS)
+        {
+            printf("Failed to set arg 2: ");
+            error_int(error);
+            return -1;
+        }
+        error = clEnqueueNDRangeKernel(command_queue, kernelMult, 1, NULL, WorkSize, NULL, 0, NULL, NULL);
+        if (error != CL_SUCCESS)
+        {
+            printf("Failed Mult: ");
+            error_int(error);
+            return -1;
+        }
+        error = clEnqueueReadBuffer(command_queue, arg1, CL_TRUE, 0, ncols * sizeof(unsigned long long), macierz[j], 0, NULL, NULL);
+        if (error != CL_SUCCESS)
+        {
+            printf("Failed to read result: ");
+            error_int(error);
+            return -1;
+        }
         for (int i = 0; i < macierz.size(); i++)
         {
             if (j != i)
             {
-                a[0] = mult(macierz[i][j], mul_inv(macierz[j][j],p));
-                cout << mult(macierz[j][j], mul_inv(macierz[j][j], p)) << endl;
-                error = clEnqueueWriteBuffer(command_queue, arg1, CL_TRUE, 0, ncols * sizeof(unsigned long long), macierz[i], 0, NULL, NULL);
+                a[0] = macierz[i][j];
+                //cout << "w[" << i << "][" << j << "] = " << a[0] << endl;
+                error = clEnqueueWriteBuffer(command_queue, arg1, CL_TRUE, 0, ncols * sizeof(unsigned long long), macierz[j], 0, NULL, NULL);
                 error = clEnqueueWriteBuffer(command_queue, arg2, CL_TRUE, 0, 1 * sizeof(unsigned long long), a, 0, NULL, NULL);
                 error = clSetKernelArg(kernelMult, 0, sizeof(cl_mem), (void*)&arg1);
                 if (error != CL_SUCCESS)
@@ -328,7 +361,7 @@ int main(int argc, char** argv)
                 clEnqueueNDRangeKernel(command_queue, kernelAdd, 1, NULL, WorkSize, NULL, 0, NULL, NULL);
                 clEnqueueReadBuffer(command_queue, arg1, CL_TRUE, 0, ncols * sizeof(unsigned long long), macierz[i], 0, NULL, NULL);
             }
-            for (int k = 0; k < 5; k++)
+            for (int k = 0; k < ncols; k++)
             {
                 cout << macierz[i][k] << " ";
             }

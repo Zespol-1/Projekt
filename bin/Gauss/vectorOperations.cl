@@ -45,7 +45,7 @@ __kernel void vectorAdd(__global unsigned long* a, __global unsigned long* b)
 {
 	unsigned long p = 9223372036854775783;
 	unsigned int n = get_global_id(0);
-	a[n] = (a[n] + b[n]) % p;
+	a[n] = (a[n] + (p - b[n])) % p;
 }
 
 __kernel void vectorScalarMult(__global unsigned long* a, __global unsigned long* b)
