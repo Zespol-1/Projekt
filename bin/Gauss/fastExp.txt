@@ -1,0 +1,14 @@
+unsigned long long fastExp(unsigned long long b, unsigned long long e)
+{
+    unsigned long long result = 1;
+	if (1 & e)
+		result = b;
+	while (1) {
+		if (!e) break;
+		e >>= 1;
+		b = mult_p(b,b);
+        if (e & 1)
+            result = mult_p(result, b);
+	}
+	return result;
+}
