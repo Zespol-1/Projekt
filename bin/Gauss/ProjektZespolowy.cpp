@@ -7,11 +7,14 @@
 #include <CL/cl.h>
 
 #include <vector>
+#include <fstream>
+#include <string>
+
 
 using namespace std;
 #define MEM_SIZE (128)
 #define MAX_SOURCE_SIZE (0x100000)
-#define ncols 6
+#define ncols 32
 unsigned long long p = 9223372036854775783;
 unsigned long long n = p - 1;
 
@@ -96,7 +99,7 @@ uint64_t product_mult64_reduce_p(uint64_t tbr)
     tbr = tbr % p;
     uint64_t x1 = tbr >> 32;
     uint64_t y1 = tbr & 0xffffffff;
-    uint64_t res = product_mult32_reduce_n(x1 * 50) + y1 * 50;
+    uint64_t res = product_mult32_reduce_p(x1 * 50) + y1 * 50;
     return res % p;
 }
 
@@ -185,6 +188,63 @@ unsigned long long mult_p(unsigned long long a, unsigned long long b)
 
     return ((((halfa + halfb) % p + halfc) % p + halfd) % p);
 }
+
+unsigned long long fastExpMod(unsigned long long b, unsigned long long e)
+{
+    unsigned long long result = 1;
+    if (1 & e)
+        result = b;
+    while (1) {
+        if (!e) break;
+        e >>= 1;
+        b = mult_p(b, b);
+        if (e & 1)
+            result = mult_p(result, b);
+    }
+    return result;
+}
+
+
+void primes(unsigned long long tmp_tab[ncols-1])
+{
+    fstream uchwyt; //obiekt typu fstream (uchwyt do pliku)
+
+    uchwyt.open("primes.txt"); //otwieramy plik: plik.txt (plik - nazwa pliku, txt - rozszerzenie)
+    string linia;
+
+    for (int i = 0; i < (ncols-1); i++) {
+        getline(uchwyt, linia); //pobierz linijkę
+        tmp_tab[i] = stoull(linia, NULL, 0);
+    }
+
+    uchwyt.close(); //zamykamy plik
+}
+
+void row_generator(unsigned long long a, unsigned long long row[ncols])
+{
+    srand(time(NULL));
+    unsigned long long N[ncols-1];
+    primes(N);
+    jeszcze_raz:
+    unsigned long long e = rand() % p;
+    unsigned long long res = fastExpMod(a, e);
+    for (int i = 0; i < (ncols - 1); i++)
+    {
+        int licznik = 0;
+        while (res % N[i] == 0 && res != 0)
+        {
+            res = res / N[i];
+            licznik++;
+        }
+        row[i] = licznik;
+    }
+    row[ncols - 1] = e;
+    if (res != 1)
+    {
+        goto jeszcze_raz;
+    }
+}
+
 int main(int argc, char** argv)
 {
     #pragma warning(disable : 4996)
@@ -288,24 +348,25 @@ int main(int argc, char** argv)
         return -1;
     }
 
-    unsigned long long row1[6] = { 1, 2, 3, 4, 5, 6 };
-    unsigned long long row2[6] = { 4, 78, 7, 7, 2, 8 };
-    unsigned long long row3[6] = { 5, 7, 9, 8, 3, 15 };
-    unsigned long long row4[6] = { 6, 21, 23, 8, 4, 13 };
-    unsigned long long row5[6] = { 7, 7, 10, 8, 1, 5 };
-    unsigned long long row6[6] = { 9, 4, 11, 7, 9, 4 };
-    unsigned long long tmp[6];
+    unsigned long long tmp[ncols];
     unsigned long long b[1];
-
-
     vector <unsigned long long*> macierz;
     unsigned long long a[1];
-    macierz.push_back(row1);
-    macierz.push_back(row2);
-    macierz.push_back(row3);
-    macierz.push_back(row4);
-    macierz.push_back(row5);
-    macierz.push_back(row6);
+    for (int i = 0; i < ncols; i++)
+    {
+        unsigned long long row[ncols];
+        row_generator(658, row);
+        macierz.push_back(row);
+    }
+    for (int n = 0; n < ncols - 1; n++)
+    {
+        for (int m = 0; m < ncols; m++)
+        {
+            cout << macierz[n][m] << " ";
+        }
+        cout << endl;
+    }
+    cout << endl;
 
     size_t WorkSize[1] = { 1024 };
     cl_mem arg1 = clCreateBuffer(context, CL_MEM_READ_WRITE |
@@ -331,10 +392,7 @@ int main(int argc, char** argv)
         a[0] = mul_inv(macierz[j][j], n);
         while (a[0] == 0)
         {
-            for (int l = 0; l < ncols; l++)
-            {
-                macierz[j][l] = rand() % (p);
-            }
+            row_generator(658, macierz[j]);
             for (int k = 0; k < j; k++)
             {
                 b[0] = macierz[j][k];
@@ -428,7 +486,7 @@ int main(int argc, char** argv)
             }
         }
     }
-    for (int n = 0; n < ncols-1; n++)
+    for (int n = 0; n < ncols - 1; n++)
     {
         for (int m = 0; m < ncols; m++)
         {
@@ -436,6 +494,7 @@ int main(int argc, char** argv)
         }
         cout << endl;
     }
+    cout << endl;
     /* Finalization */
     error = clFlush(command_queue);
     error = clFinish(command_queue);
