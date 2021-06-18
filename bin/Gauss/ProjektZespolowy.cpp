@@ -12,7 +12,8 @@ using namespace std;
 #define MEM_SIZE (128)
 #define MAX_SOURCE_SIZE (0x100000)
 #define ncols 6
-unsigned long long p = 9223372036854775783-1;
+unsigned long long p = 9223372036854775783;
+unsigned long long n = p - 1;
 
 void __stdcall pfn_notify(const char* errinfo, const void* private_info, size_t cb, void* user_data)
 {
@@ -62,21 +63,40 @@ void error_int(cl_int err)
     }
 }
 
-uint64_t product_mult32_reduce(uint64_t tbr) 
+uint64_t product_mult32_reduce_n(uint64_t tbr) 
+{
+    tbr = tbr % n;
+    uint64_t x1 = tbr >> 32;
+    uint64_t y1 = tbr & 0xffffffff;
+    uint64_t res = ((y1 << 32) % n) + x1 * 52;
+    return res % n;
+}
+
+uint64_t product_mult32_reduce_p(uint64_t tbr)
 {
     tbr = tbr % p;
     uint64_t x1 = tbr >> 32;
     uint64_t y1 = tbr & 0xffffffff;
-    uint64_t res = ((y1 << 32) % p) + x1 * 52;
+    uint64_t res = ((y1 << 32) % p) + x1 * 50;
     return res % p;
 }
 
-uint64_t product_mult64_reduce(uint64_t tbr) 
+
+uint64_t product_mult64_reduce_n(uint64_t tbr) 
+{
+    tbr = tbr % n;
+    uint64_t x1 = tbr >> 32;
+    uint64_t y1 = tbr & 0xffffffff;
+    uint64_t res = product_mult32_reduce_n(x1 * 52) + y1 * 52;
+    return res % n;
+}
+
+uint64_t product_mult64_reduce_p(uint64_t tbr)
 {
     tbr = tbr % p;
     uint64_t x1 = tbr >> 32;
     uint64_t y1 = tbr & 0xffffffff;
-    uint64_t res = product_mult32_reduce(x1 * 52) + y1 * 52;
+    uint64_t res = product_mult32_reduce_n(x1 * 50) + y1 * 50;
     return res % p;
 }
 
@@ -123,7 +143,7 @@ uint64_t mul_inv(uint64_t a, uint64_t b)
     return x1.isNegative ? (b0 - x1.value) : x1.value;
 }
 
-unsigned long long mult(unsigned long long a, unsigned long long b) 
+unsigned long long mult_n(unsigned long long a, unsigned long long b) 
 {
     unsigned long long x1 = a;
     x1 = x1 >> 32;
@@ -135,9 +155,31 @@ unsigned long long mult(unsigned long long a, unsigned long long b)
     y2 = b & 0xffffffff;
 
 
-    uint64_t halfa = product_mult64_reduce(x1 * x2);
-    uint64_t halfb = product_mult32_reduce(x1 * y2);
-    uint64_t halfc = product_mult32_reduce(x2 * y1);
+    uint64_t halfa = product_mult64_reduce_n(x1 * x2);
+    uint64_t halfb = product_mult32_reduce_n(x1 * y2);
+    uint64_t halfc = product_mult32_reduce_n(x2 * y1);
+    uint64_t halfd = (y1 * y2) % n;
+
+
+    return ((((halfa + halfb) % n + halfc) % n + halfd) % n);
+}
+
+
+unsigned long long mult_p(unsigned long long a, unsigned long long b)
+{
+    unsigned long long x1 = a;
+    x1 = x1 >> 32;
+    unsigned long long y1;
+    y1 = a & 0xffffffff;
+    unsigned long long x2 = b;
+    x2 = x2 >> 32;
+    unsigned long long y2;
+    y2 = b & 0xffffffff;
+
+
+    uint64_t halfa = product_mult64_reduce_p(x1 * x2);
+    uint64_t halfb = product_mult32_reduce_p(x1 * y2);
+    uint64_t halfc = product_mult32_reduce_p(x2 * y1);
     uint64_t halfd = (y1 * y2) % p;
 
 
@@ -286,7 +328,7 @@ int main(int argc, char** argv)
     srand(time(NULL));
     for (int j = 0; j < ncols-1; j++)
     {
-        a[0] = mul_inv(macierz[j][j], p);
+        a[0] = mul_inv(macierz[j][j], n);
         while (a[0] == 0)
         {
             for (int l = 0; l < ncols; l++)
@@ -310,7 +352,7 @@ int main(int argc, char** argv)
                 clEnqueueNDRangeKernel(command_queue, kernelAdd, 1, NULL, WorkSize, NULL, 0, NULL, NULL);
                 clEnqueueReadBuffer(command_queue, arg1, CL_TRUE, 0, ncols * sizeof(unsigned long long), macierz[j], 0, NULL, NULL);
             }
-            a[0] = mul_inv(macierz[j][j], p);
+            a[0] = mul_inv(macierz[j][j], n);
         }
         error = clEnqueueWriteBuffer(command_queue, arg1, CL_TRUE, 0, ncols * sizeof(unsigned long long), macierz[j], 0, NULL, NULL);
         error = clEnqueueWriteBuffer(command_queue, arg2, CL_TRUE, 0, 1 * sizeof(unsigned long long), a, 0, NULL, NULL);
