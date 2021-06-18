@@ -245,6 +245,134 @@ void row_generator(unsigned long long a, unsigned long long row[ncols])
     }
 }
 
+void toString( bool test ){
+	if( test ){
+		cout << "Good" << endl;
+	}else {
+		cout << "Bad"<< endl;
+	}
+}	
+
+
+# TESTY funkcji mult_p
+void mult_p_test(){
+	unsigned long long a,b,result;
+//	unsigned long long p = 9223372036854775783;
+    bool test;
+	
+	cout << "Starting mult_p tests..." << endl;
+	
+	a = 9922926131709852725;
+	b = 12934490838497742223;
+	result = 6270002602682420120;
+	test =  (mult_p(a,b) == result);
+	toString(test);
+
+	
+	a = 4701584462143343031;
+	b = 8780868397663836517;
+	result = 5562107464272941798;
+	test =  (mult_p(a,b) == result);
+	toString(test);
+	
+	a = 17950515727283794051;
+	b = 654787098957677525;
+	result = 8510628229123749504;
+	test =  (mult_p(a,b) == result);
+	toString(test);
+	
+	a = 5837595787056108429;
+	b = 8505627195766366512;
+	result = 7012322239095459645;
+	test =  (mult_p(a,b) == result);
+	toString(test);
+	
+	a = 6227156793379146467;
+	b = 8066372097000515353;
+	result = 6327858033736890011;
+	test =  (mult_p(a,b) == result);
+	toString(test);
+	
+	a = 11182028815488230963;
+	b = 7949740137117062473;
+	result = 3334401925302267135;
+	test =  (mult_p(a,b) == result);
+	toString(test);
+	
+	a = 13892691981017613899;
+	b = 6593183929266105706;
+	result = 6327858033736890011;
+	test =  (mult_p(a,b) == result);
+	toString(test);
+	
+	a = 11668836387081927041;
+	b = 48;
+	result = 6701824368645950988;
+	test =  (mult_p(a,b) == result);
+	toString(test);	
+}
+
+
+# TESTY funkcji mult_n
+void mult_n_test(){
+	unsigned long long a,b,result;
+//	unsigned long long n = 9223372036854775783 - 1;
+	
+	
+	cout << "Starting mult_n tests..." << endl;
+	
+	a = 9922926131709852725;
+	b = 12934490838497742223;
+	result = 1738776262491330641;
+	test =  (mult_n(a,b) == result);
+	toString(test);
+	
+	a = 4701584462143343031;
+	b = 8780868397663836517;
+	result = 814755071602430379;
+	test =  (mult_n(a,b) == result);
+	toString(test);
+	
+	a = 17950515727283794051;
+	b = 654787098957677525;
+	result = 561602068256257859;
+	test =  (mult_n(a,b) == result);
+	toString(test);
+	
+	a = 5837595787056108429;
+	b = 8505627195766366512;
+	result = 3172275659120700204;
+	test =  (mult_n(a,b) == result);
+	toString(test);
+	
+	a = 6227156793379146467;
+	b = 8066372097000515353;
+	result = 2550494636786188709;
+	test =  (mult_n(a,b) == result);
+	toString(test);
+	
+	a = 11182028815488230963;
+	b = 7949740137117062473;
+	result = 3748960889569702061;
+	test =  (mult_n(a,b) == result);
+	toString(test);
+	
+	a = 13892691981017613899;
+	b = 6593183929266105706;
+	result = 4401328015788414116;
+	test =  (mult_n(a,b) == result);
+	toString(test);
+	
+	a = 11668836387081927041;
+	b = 48;
+	result = 6701824368645951048;
+	test =  (mult_n(a,b) == result);
+	toString(test);
+	
+}
+
+
+# cialo glowne funkcji
 int main(int argc, char** argv)
 {
     #pragma warning(disable : 4996)
