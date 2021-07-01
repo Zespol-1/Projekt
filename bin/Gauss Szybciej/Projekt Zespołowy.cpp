@@ -331,6 +331,8 @@ uint64_t mul_inv(uint64_t a, uint64_t b)
 {
     if (b <= 1)
         return 0;
+    if (a == 0)
+        return 0;
 
     uint64_t b0 = b;
     uint64AndSign x0 = { 0, false }; // b = 1*b + 0*a
@@ -544,7 +546,6 @@ int main()
     vector<unsigned long long> primes = read_primes();
     vector<vector<unsigned long long>> matrix = matrix_gen(3, primes);
     matrix = gauss_reduction(matrix, primes, 3);
-
 
     /*
     vector<unsigned long long> a;
