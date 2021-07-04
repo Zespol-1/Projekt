@@ -540,6 +540,7 @@ vector<unsigned long long> gauss_reduction(vector<vector<unsigned long long>> ma
 
 void row_reduce_test()
 {
+    cout << "Test redukcji wierszy" << endl;
     vector<unsigned long long> row1, row2, res;
     for (int i = 0; i < 10; i++)
     {
@@ -547,9 +548,17 @@ void row_reduce_test()
         row2.push_back(2 * i + 1);
     }
     res = row_reduce(row2, row1, 2);
+    int counter = 0;
     for (int k = 0; k < 10; k++)
     {
-        cout << res[k] << " ";
+        if (res[k] == 1)
+        {
+            counter++;
+        }
+    }
+    if (counter == 10)
+    {
+        cout << "Test zakonczony sukcesem." << endl;
     }
 }
 
@@ -569,241 +578,197 @@ void row_mult_test()
 
 void mult_p_test()
 {
+    cout << "Test mnozenia modularanego (mod p)" << endl;
     unsigned long long a, b, result;
     int counter = 0; 
     a = 9922926131709852725;
     b = 12934490838497742223;
     result = 6270002602682420120;
-    cout << "Test 1" << endl;
     if (mult_p(a, b) == result)
     {
         counter++;
-        cout << "Sukces" << endl;
     }
-    cout << "Test 2" << endl;
     a = 4701584462143343031;
     b = 8780868397663836517;
     result = 5562107464272941798;
     if (mult_p(a, b) == result)
     {
-        counter++;
-        cout << "Sukces" << endl;
+        counter++;;
     }
-    cout << "Test 3" << endl;
     a = 17950515727283794051;
     b = 654787098957677525;
     result = 8510628229123749504;
     if (mult_p(a, b) == result)
     {
         counter++;
-        cout << "Sukces" << endl;
     }
-    cout << "Test 4" << endl;
     a = 5837595787056108429;
     b = 8505627195766366512;
     result = 7012322239095459645;
     if (mult_p(a, b) == result)
     {
         counter++;
-        cout << "Sukces" << endl;
     }
-    cout << "Test 5" << endl;
     a = 6227156793379146467;
     b = 8066372097000515353;
     result = 6327858033736890011;
     if (mult_p(a, b) == result)
     {
         counter++;
-        cout << "Sukces" << endl;
     }
-    cout << "Test 6" << endl;
     a = 11182028815488230963;
     b = 7949740137117062473;
     result = 3334401925302267135;
     if (mult_p(a, b) == result)
     {
         counter++;
-        cout << "Sukces" << endl;
     }
-    cout << "Test 7" << endl;
     a = 13892691981017613899;
     b = 6593183929266105706;
     result = 3693725444063422420;
     if (mult_p(a, b) == result)
     {
         counter++;
-        cout << "Sukces" << endl;
     }
-    cout << "Test 8" << endl;
     a = 11668836387081927041;
     b = 48;
     result = 6701824368645950988;
     if (mult_p(a, b) == result)
     {
         counter++;
-        cout << "Sukces" << endl;
     }
     cout << "Liczba testow zakonczona sukcesem: " << counter << "/8" << endl;
 }
 
 void mult_n_test()
 {
+    cout << "Test mnozenia modularanego (mod n)" << endl;
     unsigned long long a, b, result;
     int counter = 0;
     a = 9922926131709852725;
     b = 12934490838497742223;
     result = 1738776262491330641;
-    cout << "Test 1" << endl;
     if (mult_n(a, b) == result)
     {
         counter++;
-        cout << "Sukces" << endl;
     }
 
     a = 4701584462143343031;
     b = 8780868397663836517;
     result = 814755071602430379;
-    cout << "Test 2" << endl;
     if (mult_n(a, b) == result)
     {
         counter++;
-        cout << "Sukces" << endl;
     }
 
     a = 17950515727283794051;
     b = 654787098957677525;
     result = 561602068256257859;
-    cout << "Test 3" << endl;
     if (mult_n(a, b) == result)
     {
         counter++;
-        cout << "Sukces" << endl;
     }
 
     a = 5837595787056108429;
     b = 8505627195766366512;
     result = 3172275659120700204;
-    cout << "Test 4" << endl;
     if (mult_n(a, b) == result)
     {
         counter++;
-        cout << "Sukces" << endl;
     }
 
     a = 6227156793379146467;
     b = 8066372097000515353;
     result = 2550494636786188709;
-    cout << "Test 5" << endl;
     if (mult_n(a, b) == result)
     {
         counter++;
-        cout << "Sukces" << endl;
     }
 
     a = 11182028815488230963;
     b = 7949740137117062473;
     result = 3748960889569702061;
-    cout << "Test 6" << endl;
     if (mult_n(a, b) == result)
     {
         counter++;
-        cout << "Sukces" << endl;
     }
 
     a = 13892691981017613899;
     b = 6593183929266105706;
     result = 4401328015788414116;
-    cout << "Test 7" << endl;
     if (mult_n(a, b) == result)
     {
         counter++;
-        cout << "Sukces" << endl;
     }
 
     a = 11668836387081927041;
     b = 48;
     result = 6701824368645951048;
-    cout << "Test 8" << endl;
     if (mult_n(a, b) == result)
     {
         counter++;
-        cout << "Sukces" << endl;
     }
     cout << "Liczba testow zakonczona sukcesem: " << counter << "/8" << endl;
 }
 
 void mul_inv_test()
 {
+    cout << "Test wyznaczania odwrotnosci (mod n)" << endl;
     unsigned long long a;
     int counter = 0;
     a = 9922926131709852725;
-    cout << "Test 1" << endl;
     if (mul_inv(a, n) == 393971022975603563)
     {
         counter++;
-        cout << "Sukces" << endl;
     }
 
     a = 4701584462143343031;
-    cout << "Test 2" << endl;
     if (mul_inv(a, n) == 0)
     {
         counter++;
-        cout << "Sukces" << endl;
     }
 
     a = 17950515727283794051;
-    cout << "Test 3" << endl;
     if (mul_inv(a, n) == 4529990210987414101)
     {
         counter++;
-        cout << "Sukces" << endl;
     }
 
     a = 5837595787056108429;
-    cout << "Test 4" << endl;
     if (mul_inv(a, n) == 0)
     {
         counter++;
-        cout << "Sukces" << endl;
     }
 
     a = 6227156793379146467;
-    cout << "Test 5" << endl;
     if (mul_inv(a, n) == 313726998112735169)
     {
         counter++;
-        cout << "Sukces" << endl;
     }
 
     a = 11182028815488230963;
-    cout << "Test 6" << endl;
     if (mul_inv(a, n) == 7715557655632627055)
     {
         counter++;
-        cout << "Sukces" << endl;
     }
 
     a = 13892691981017613899;
-    cout << "Test 7" << endl;
     if (mul_inv(a, n) == 2226176799301441985)
     {
         counter++;
-        cout << "Sukces" << endl;
     }
 
     a = 11668836387081927041;
-    cout << "Test 8" << endl;
     if (mul_inv(a, n) == 8007805973839656239)
     {
         counter++;
-        cout << "Sukces" << endl;
     }
     cout << "Liczba testow zakonczona sukcesem: " << counter << "/8" << endl;
 }
 
 void row_gen_test()
 {
+    cout << "Test generowania relacji" << endl;
     vector<unsigned long long> primes = read_primes();
     unsigned long long result;
     vector<unsigned long long> R = row_generator(3, primes);
@@ -817,11 +782,9 @@ void row_gen_test()
             tmp = mult_p(tmp, e);
         }
         result = fastExpMod(3, R[ncols - 1]);
-        cout << "Test " << j << endl;
         if (result == tmp)
         {
             counter++;
-            cout << "Dziala" << endl;
         }
     }
     cout << "Liczba testow zakonczona sukcesem: " << counter << "/15" << endl;
@@ -900,18 +863,21 @@ unsigned long long index_metod(unsigned long long a, unsigned long long b)
 
 void index_metod_test()
 {
+    int wait;
     cout << "Test 1" << endl;
     cout << "3 ^ 91 = 4370122670155005125" << endl;
     if (index_metod(3, 4370122670155005125) == 91)
     {
         cout << "Sukces" << endl;
     }
+    cin >> wait;
     cout << "Test 2" << endl;
     cout << "3 ^ 2137 = 5534050014730682931" << endl;
     if (index_metod(3, 5534050014730682931) == 2137)
     {
         cout << "Sukces" << endl;
     }
+    cin >> wait;
     cout << "Test 3" << endl;
     cout << "3 ^ 87345 = 3654366162698815542" << endl;
     if (index_metod(3, 3654366162698815542) == 87345)
@@ -920,19 +886,62 @@ void index_metod_test()
     }
 }
 
-
+void other_test()
+{
+    row_reduce_test();
+    cout << endl;
+    mult_p_test();
+    cout << endl;
+    mult_n_test();
+    cout << endl;
+    mul_inv_test();
+    cout << endl;
+    row_gen_test();
+}
 
 
 int main()
 {
-
     int err = 0;
+    int o;
     cout << "Projekt zespolowy - metoda indeksu" << endl;
-    cout << "Autorzy: \nKamila Biernacka \nDominik Kania \nMateusz Lesniak \nWojciech Maziarz" << endl << endl;
+    cout << "Autorzy: \n\tKamila Biernacka \n\tDominik Kania \n\tMateusz Lesniak \n\tWojciech Maziarz" << endl << endl;
     err = set_up();
+    if (err == -1)
+    {
+        return 0;
+    }
     err = create_buffers();
-    //index_metod(3, 4370122670155005125); //91
-    //index_metod(3, 5534050014730682931); //2137
-    index_metod(3, 3654366162698815542); //87345
+    if (err == -1)
+    {
+        return 0;
+    }
+    cout << "Wybierz funkcje: \n1 - testy funkcji skladowych \n2 - test metody indeksu \n3 - rozwiazanie zadanageo problemu" << endl;
+    cin >> o;
+    switch (o)
+    {
+        case 1:
+        {
+            other_test();
+        }; break;
+        case 2:
+        {
+            index_metod_test();
+        }; break;
+        case 3:
+        {
+            unsigned long long a, b;
+            cout << "Podaj podstawe logarytmu: " << endl;
+            cin >> a;
+            cout << "Podaj liczbe logarytmowana: " << endl;
+            cin >> b;
+            cout << "Rozwiazanie: " << index_metod(a, b) << endl;
+        }; break;
+        default:
+        {
+            cout << "Podano zla opcje " << endl;
+        }; break;
+    }
+    
     return 0;
 }
