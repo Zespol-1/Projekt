@@ -6,6 +6,7 @@
 #include <fstream>
 #include <string>
 #include <random>
+#include <time.h>
 
 
 #define MEM_SIZE (128)
@@ -52,6 +53,7 @@ private:
     uniform_int_distribution<unsigned long long> dist;
 }; RandomGen randomGen;
 
+//----------Inicjalizacja------------------
 void error_int(cl_int err)
 {
     switch (err)
@@ -499,18 +501,18 @@ vector<unsigned long long> gauss_reduction(vector<vector<unsigned long long>> ma
             }
             if (k == matrix.size())
             {
-                cout << "Poszukiwanie dodatkowych relacji dla kolumny " << column_counter << " (liczba " << primes[column_counter] << ")" << endl;
+                cout << "Poszukiwanie dodatkowych relacji dla kolumny " << column_counter << " (liczba " << primes[column_counter] << ")" << flush << endl;
                 for (int l = 0; l < 100; l++)
                 {
                     vector<unsigned long long> tmp = row_generator(gen, primes);
                     matrix.push_back(tmp);
                 }
-                cout << "Dolozono 100 relacacji " << endl;
+                cout << "Dolozono 100 relacji " << flush << endl;
             }
             else
             {
                 matrix[column_counter].swap(matrix[k]);
-                cout << "Zamiana wiersza " << column_counter << " z " << k << endl;
+                //cout << "Zamiana wiersza " << column_counter << " z " << k << endl;
                 for (int tmp_row_counter = 0; tmp_row_counter < column_counter; tmp_row_counter++)
                 {
                     matrix[column_counter] = row_reduce(matrix[column_counter], matrix[tmp_row_counter], matrix[column_counter][tmp_row_counter]);
@@ -526,10 +528,10 @@ vector<unsigned long long> gauss_reduction(vector<vector<unsigned long long>> ma
                 matrix[row_counter] = row_reduce(matrix[row_counter], matrix[column_counter], matrix[row_counter][column_counter]);
             }
         }
-        cout << "Pozostalo " << ncols - 1 - column_counter << " kolumn" << endl;
+        cout << "Pozostalo " << ncols - 1 - column_counter << " kolumn" << flush << endl;
     }
 
-    for (int i = 0; i < ncols; i++)
+    for (int i = 0; i < ncols - 1; i++)
     {
         result.push_back(matrix[i][ncols - 1]);
     }
@@ -825,14 +827,112 @@ void row_gen_test()
     cout << "Liczba testow zakonczona sukcesem: " << counter << "/15" << endl;
 }
 
+void gauss_reduction_test(vector<unsigned long long> result, vector<unsigned long long>& primes)
+{
+    int counter = 0;
+    for (int i = 0; i < ncols - 1; i++)
+    {
+        if (primes[i] == fastExpMod(3, result[i]))
+        {
+            counter++;
+        }
+    }
+    cout << "Liczba testow zakonczona sukcesem: " << counter << "/" << ncols - 1 << endl;
+}
+
+vector<unsigned long long> r_gen(unsigned long long a, unsigned long long b, vector<unsigned long long>& primes)
+{
+    bool is_set = false;
+    vector<unsigned long long> row(ncols, 0);
+    while (!is_set)
+    {
+        unsigned long long r = randomGen.random() % (p - 3) + 2;
+        unsigned long long res = mult_p(b, fastExpMod(a, r));
+        for (int i = 0; i < (ncols - 1); i++)
+        {
+            int licznik = 0;
+            while (res % primes[i] == 0 && res != 0)
+            {
+                res = res / primes[i];
+                licznik++;
+            }
+            row[i] = licznik;
+        }
+        row[ncols - 1] = r;
+        if (res == 1)
+        {
+            is_set = true;
+            return row;
+        }
+    }
+}
+
+unsigned long long index_metod(unsigned long long a, unsigned long long b)
+{
+    vector<unsigned long long> primes = read_primes();
+    cout << "Etap pierwszy - budowa relacji" << endl;
+    clock_t relation_start = clock();
+    vector<vector<unsigned long long>> matrix = matrix_gen(a, primes);
+    clock_t relation_end = clock();
+    system("cls");
+    cout << "Etap drugi - redukcja Gaussa" << endl;
+    clock_t gauss_start = clock();
+    vector<unsigned long long> X = gauss_reduction(matrix, primes, 3);
+    clock_t gauss_end = clock();
+    system("cls");
+    cout << "Weryfikacja redukcji" << endl;
+    gauss_reduction_test(X, primes);
+    cout << "Etap trzeci - wyznaczenie rozwiazania" << endl;
+    vector<unsigned long long> R = r_gen(a, b, primes);
+    unsigned long long r = R[ncols - 1];
+    unsigned long long sum = 0;
+    for (int j = 0; j < ncols - 1; j++)
+    {
+        sum = (sum + mult_n(R[j], X[j])) % n;
+    }
+    unsigned long long x = ((n - r) + sum) % n;
+    clock_t index_end = clock();
+    cout << "Rozwiazanie: " << x << ", znalezione w " << (double)(index_end - relation_start) / CLOCKS_PER_SEC << " s" << endl;
+    cout << "Budowanie relacji: " << (double)(relation_end - relation_start) / CLOCKS_PER_SEC << " s" << endl;
+    cout << "Redukcja Gaussa: " << (double)(gauss_end - gauss_start) / CLOCKS_PER_SEC << " s" << endl;
+    return x;
+}
+
+void index_metod_test()
+{
+    cout << "Test 1" << endl;
+    cout << "3 ^ 91 = 4370122670155005125" << endl;
+    if (index_metod(3, 4370122670155005125) == 91)
+    {
+        cout << "Sukces" << endl;
+    }
+    cout << "Test 2" << endl;
+    cout << "3 ^ 2137 = 5534050014730682931" << endl;
+    if (index_metod(3, 5534050014730682931) == 2137)
+    {
+        cout << "Sukces" << endl;
+    }
+    cout << "Test 3" << endl;
+    cout << "3 ^ 87345 = 3654366162698815542" << endl;
+    if (index_metod(3, 3654366162698815542) == 87345)
+    {
+        cout << "Sukces" << endl;
+    }
+}
+
+
+
+
 int main()
 {
 
-    int set = set_up();
-    create_buffers();
-    vector<unsigned long long> primes = read_primes();
-    vector<unsigned long long> result;
-    vector<vector<unsigned long long>> matrix = matrix_gen(3, primes);
-    result = gauss_reduction(matrix, primes, 3);
+    int err = 0;
+    cout << "Projekt zespolowy - metoda indeksu" << endl;
+    cout << "Autorzy: \nKamila Biernacka \nDominik Kania \nMateusz Lesniak \nWojciech Maziarz" << endl << endl;
+    err = set_up();
+    err = create_buffers();
+    //index_metod(3, 4370122670155005125); //91
+    //index_metod(3, 5534050014730682931); //2137
+    index_metod(3, 3654366162698815542); //87345
     return 0;
 }
