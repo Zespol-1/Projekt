@@ -41,15 +41,15 @@ unsigned long mult(unsigned long a, unsigned long b)
 }
 
 
-__kernel void vectorAdd(__global unsigned long* a, __global unsigned long* b)
+__kernel void vectorReduce(__global unsigned long* a, __global unsigned long* b,  unsigned long r)
 {
 	unsigned long p = 9223372036854775783-1;
 	unsigned int n = get_global_id(0);
-	a[n] = (a[n] + (p - b[n])) % (p);
+	a[n] = (a[n] + (p - mult(b[n], r))) % (p);
 }
 
-__kernel void vectorScalarMult(__global unsigned long* a, __global unsigned long* b)
+__kernel void vectorScalarMult(__global unsigned long* a, unsigned long b)
 {
 	unsigned int n = get_global_id(0);
-	a[n] = mult(a[n], b[0]);
+	a[n] = mult(a[n], b);
 }
